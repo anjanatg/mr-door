@@ -1,107 +1,42 @@
 /* =========================================================
-   TYPES OF DOORS — rebuilt from scratch
+   DOOR TYPE CARDS (Bootstrap-based, door- prefix)
    ========================================================= */
-
-.doors-section {
-  padding: 70px 0;
-}
-
-.doors-grid {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 14px;
-  align-items: start;
-}
-
-.door-card {
-  display: flex;
-  flex-direction: column;
+.door-card{
+  display: block;
   border: 1px solid var(--border);
   border-radius: var(--radius);
   overflow: hidden;
   background: var(--white);
+  transition: box-shadow .15s ease, transform .15s ease;
+}
+.door-card:hover{
   box-shadow: var(--shadow);
-  transition: transform .2s ease;
+  transform: translateY(-3px);
 }
 
-.door-card:hover {
-  transform: translateY(-4px);
+.door-card-media{
+  aspect-ratio: 4/3;
 }
-
-.door-card-media {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-}
-
-.door-card-media .placeholder-img {
+.door-card-media .placeholder-img{
   width: 100%;
   height: 100%;
 }
 
-.door-card-body {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 8px;
-  padding: 10px 12px;
+.door-card-name{
+  font-size: .95rem;
+  color: var(--ink);
 }
 
-.door-card-name {
-  font-weight: 600;
-  font-size: .78rem;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.door-card-link {
-  display: flex;
-  align-items: center;
-  gap: 4px;
+.door-card-link{
   color: var(--gold-dark);
-  font-size: .72rem;
-  font-weight: 600;
-  flex-shrink: 0;
-  transition: color .2s ease;
+  font-size: .8rem;
 }
-
-.door-card-link:hover {
+.door-card-link:hover{
   color: var(--gold);
 }
-
-/* ---------- Responsive ---------- */
-
-@media (max-width: 1300px) {
-  .doors-grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
+.door-card-link svg{
+  transition: transform .15s ease;
 }
-
-@media (max-width: 900px) {
-  .doors-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 18px;
-  }
-  .door-card-body {
-    padding: 12px 14px;
-  }
-  .door-card-name {
-    font-size: .85rem;
-  }
-  .door-card-link {
-    font-size: .78rem;
-  }
-}
-
-@media (max-width: 640px) {
-  .doors-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 14px;
-  }
-}
-
-@media (max-width: 420px) {
-  .doors-grid {
-    grid-template-columns: 1fr;
-  }
+.door-card-link:hover svg{
+  transform: translateX(2px);
 }

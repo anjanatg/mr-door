@@ -1,18 +1,25 @@
 /* =========================================================
-   GALLERY
+   GALLERY (Bootstrap-based, gall- prefix)
    ========================================================= */
-.gallery{ background: var(--cream); padding: 70px 0; }
-.gallery-strip{
-  display:grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 16px;
+#gallery-section{
+  background: var(--cream-deep);
 }
-.gallery-img{
-  aspect-ratio: 10/12;
-  border-radius: 8px;
-  box-shadow: var(--shadow);
+
+.gall-img{
+  aspect-ratio: 1/1;
+  object-fit: cover;
 }
-.gallery-cta{
-  display:flex; align-items:center; justify-content:center;
-  background: var(--white);
+
+.btn-gold{
+  background: var(--gold);
+  color: #1a1a1a;
+  border: none;
+  padding: 10px 20px;
+  border-radius: var(--radius);
+  font-size: .9rem;
+  transition: background .15s ease;
+}
+.btn-gold:hover{
+  background: var(--gold-dark);
+  color: #fff;
 }

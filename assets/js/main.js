@@ -1,146 +1,139 @@
 /* =========================================================
-   Mr.Door — main.js
-   1) Loads every page section from its own partial HTML file
-      (partials/hero.html, partials/types.html, etc.) into the
-      matching placeholder <div data-partial="..."> in index.html.
-   2) Once everything is loaded, wires up nav toggle, carousels,
-      testimonial dots and the contact form.
+   Mr.Door — main.js (simple version)
+
+   What this file does:
+   1. Every section (hero, about, products, etc.) is saved as
+      its own separate HTML file (called a "partial").
+      This file fetches all of those files and places them
+      into the correct spot on the page.
+   2. Once every section has loaded onto the page, it turns
+      on the buttons, carousels, and form so they actually work.
    ========================================================= */
 
-/**
- * Fetches a partial HTML file and injects it into a target element.
- * @param {HTMLElement} el - the placeholder div with data-partial="path/to/file.html"
- */
-async function loadPartial(el) {
-  const url = el.getAttribute('data-partial');
+
+/* ---------- STEP 1: Load all partial files ---------- */
+
+// Fetches a single partial (example: header.html) and puts its HTML on the page
+async function loadOnePartial(placeholderDiv) {
+  // Get the file path from the data-partial="..." attribute
+  const filePath = placeholderDiv.getAttribute('data-partial');
+
   try {
-    const res = await fetch(url, { cache: 'no-cache' });
-    if (!res.ok) throw new Error(`${url} → ${res.status}`);
-    el.outerHTML = await res.text();
-  } catch (err) {
-    console.error('Could not load partial:', url, err);
-    el.innerHTML = `<p style="padding:24px;color:#a33;">Failed to load ${url}</p>`;
+    const response = await fetch(filePath);
+    const htmlText = await response.text();
+
+    // Replace the placeholder div with the actual HTML content
+    placeholderDiv.outerHTML = htmlText;
+
+  } catch (error) {
+    console.error('Could not load file:', filePath, error);
   }
 }
 
-/**
- * Loads all partials on the page, in document order, then runs
- * initPage() once every section has been injected into the DOM.
- */
+// Loads every partial on the page
 async function loadAllPartials() {
-  const placeholders = Array.from(document.querySelectorAll('[data-partial]'));
-  await Promise.all(placeholders.map(loadPartial));
-  initPage();
+  // Find every div that has a data-partial attribute
+  const allPlaceholders = document.querySelectorAll('[data-partial]');
+
+  // Loop through each one and wait until it finishes loading
+  for (const div of allPlaceholders) {
+    await loadOnePartial(div);
+  }
+
+  // Once everything is loaded, turn on the page features
+  startPageFeatures();
 }
 
-/* ---------------------------------------------------------
-   Runs once all partials (header, hero, types, about, ...)
-   are in the DOM.
-   --------------------------------------------------------- */
-function initPage() {
-  initNavToggle();
-  initCarousel('productsTrack');
-  initTestimonialCarousel();
-  initContactForm();
+
+/* ---------- STEP 2: Turn on the page features ---------- */
+
+function startPageFeatures() {
+  setupMobileMenu();
+  setupCarousels();
+  setupContactForm();
 }
 
-/* ---------- Mobile nav toggle ---------- */
-function initNavToggle() {
-  const toggle = document.getElementById('navToggle');
-  const nav = document.getElementById('mainNav');
-  if (!toggle || !nav) return;
 
-  toggle.addEventListener('click', () => {
-    nav.classList.toggle('open');
+/* ---------- Mobile menu button (hamburger icon) ---------- */
+
+function setupMobileMenu() {
+  const menuButton = document.getElementById('navToggle');
+  const menu = document.getElementById('mainNav');
+
+  // If the button doesn't exist, do nothing
+  if (!menuButton || !menu) {
+    return;
+  }
+
+  // Clicking the button opens/closes the menu
+  menuButton.addEventListener('click', function () {
+    menu.classList.toggle('open');
   });
 
-  // close menu after a link is tapped (mobile)
-  nav.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => nav.classList.remove('open'));
-  });
-}
-
-/* ---------- Generic left/right scroll carousel (Products) ---------- */
-function initCarousel(trackId) {
-  const track = document.getElementById(trackId);
-  if (!track) return;
-
-  const prevBtn = document.querySelector(`.carousel-prev[data-target="${trackId}"]`);
-  const nextBtn = document.querySelector(`.carousel-next[data-target="${trackId}"]`);
-  const scrollAmount = 220;
-
-  prevBtn?.addEventListener('click', () => {
-    track.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
-  });
-  nextBtn?.addEventListener('click', () => {
-    track.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-  });
-}
-
-/* ---------- Testimonials carousel with dots ---------- */
-function initTestimonialCarousel() {
-  const track = document.getElementById('testimonialTrack');
-  const dotsWrap = document.getElementById('testimonialDots');
-  if (!track || !dotsWrap) return;
-
-  const cards = Array.from(track.children);
-  dotsWrap.innerHTML = '';
-
-  cards.forEach((_, i) => {
-    const dot = document.createElement('span');
-    dot.className = 'dot' + (i === 0 ? ' active' : '');
-    dot.addEventListener('click', () => {
-      const card = cards[i];
-      track.scrollTo({ left: card.offsetLeft - track.offsetLeft, behavior: 'smooth' });
+  // Clicking a link inside the menu closes it (useful on mobile)
+  const allLinks = menu.querySelectorAll('a');
+  allLinks.forEach(function (link) {
+    link.addEventListener('click', function () {
+      menu.classList.remove('open');
     });
-    dotsWrap.appendChild(dot);
-  });
-
-  const dots = Array.from(dotsWrap.children);
-
-  const prevBtn = document.querySelector('.carousel-prev[data-target="testimonialTrack"]');
-  const nextBtn = document.querySelector('.carousel-next[data-target="testimonialTrack"]');
-  prevBtn?.addEventListener('click', () => track.scrollBy({ left: -320, behavior: 'smooth' }));
-  nextBtn?.addEventListener('click', () => track.scrollBy({ left: 320, behavior: 'smooth' }));
-
-  // keep the active dot in sync while scrolling
-  let scrollTimeout;
-  track.addEventListener('scroll', () => {
-    clearTimeout(scrollTimeout);
-    scrollTimeout = setTimeout(() => {
-      let closestIdx = 0;
-      let closestDist = Infinity;
-      cards.forEach((card, i) => {
-        const dist = Math.abs(card.offsetLeft - track.offsetLeft - track.scrollLeft);
-        if (dist < closestDist) { closestDist = dist; closestIdx = i; }
-      });
-      dots.forEach(d => d.classList.remove('active'));
-      dots[closestIdx]?.classList.add('active');
-    }, 100);
   });
 }
 
-/* ---------- Contact form (front-end only demo handling) ---------- */
-function initContactForm() {
+
+/* ---------- Bootstrap Carousels (Products + Testimonials) ----------
+
+   Why this function is needed:
+   Both Products and Testimonials use Bootstrap's built-in
+   "carousel" component to slide between items.
+
+   Normally Bootstrap finds and activates carousels automatically
+   when the page first loads. But on this page, the carousel HTML
+   doesn't exist yet at that point — it arrives later, after the
+   partial files finish loading. So we have to manually tell
+   Bootstrap "this is a carousel, please activate it."
+------------------------------------------------------------------ */
+
+function setupCarousels() {
+  // Find every .carousel element currently on the page
+  const allCarousels = document.querySelectorAll('.carousel');
+
+  allCarousels.forEach(function (carouselElement) {
+    // Tell Bootstrap: "activate this one"
+    new bootstrap.Carousel(carouselElement);
+  });
+}
+
+
+/* ---------- Contact Form ---------- */
+
+function setupContactForm() {
   const form = document.getElementById('contactForm');
-  const status = document.getElementById('formStatus');
-  if (!form || !status) return;
+  const statusMessage = document.getElementById('formStatus');
 
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
+  if (!form || !statusMessage) {
+    return;
+  }
 
+  form.addEventListener('submit', function (event) {
+    // Stop the form from doing its default page reload
+    event.preventDefault();
+
+    // Check if all required fields are properly filled in
     if (!form.checkValidity()) {
-      status.textContent = 'Please fill in all fields before sending.';
-      status.style.color = '#c0392b';
+      statusMessage.textContent = 'Please fill in all fields before sending.';
+      statusMessage.style.color = 'red';
       return;
     }
 
-    // NOTE: replace this with a real fetch() call to your backend / form API.
-    status.style.color = '';
-    status.textContent = 'Thanks! Your message has been sent — we will get back to you soon.';
+    // TODO: Replace this with a real backend/API call
+    statusMessage.style.color = 'green';
+    statusMessage.textContent = 'Thanks! Your message has been sent.';
     form.reset();
   });
 }
 
-/* Kick everything off */
+
+/* ---------- Everything starts here ---------- */
+
+// Once the page's basic HTML has loaded, run this function
 document.addEventListener('DOMContentLoaded', loadAllPartials);

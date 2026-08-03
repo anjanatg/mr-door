@@ -1,26 +1,57 @@
 /* =========================================================
-   TESTIMONIALS
+   TESTIMONIALS — fixed positioning + specificity
    ========================================================= */
-.testimonials{ padding: 70px 0; }
-.testimonial-carousel{ display:flex; align-items:center; gap:12px; }
-.testimonial-card{
-  flex: 0 0 calc(33.333% - 14px);
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  padding: 26px;
+#testimonialCarousel{
+  position: relative;
+  padding: 0 50px;
 }
-.stars{ color: var(--gold); letter-spacing:2px; margin-bottom:12px; }
-.testimonial-card p{ font-size:.92rem; color: var(--ink-soft); line-height:1.6; margin: 0 0 18px; }
-.t-name{ display:block; font-weight:700; font-size:.92rem; }
-.t-loc{ display:block; font-size:.8rem; color: var(--ink-soft); }
 
-.carousel-dots{ display:flex; justify-content:center; gap:8px; margin-top:24px; }
-.carousel-dots .dot{
-  width:8px; height:8px; border-radius:50%;
-  background: var(--border);
-  cursor:pointer;
-  transition: background .15s ease, transform .15s ease;
+.carousel-control-prev,
+.carousel-control-next{
+  width: 40px;
+  opacity: 1;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
 }
-.carousel-dots .dot.active{ background: var(--gold); transform: scale(1.2); }
+.carousel-control-prev{ left: 0; }
+.carousel-control-next{ right: 0; }
+
+.testi-carousel-btn{
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--white);
+  color: var(--gold-dark);
+  font-size: 1.4rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow);
+  transition: background .15s ease, color .15s ease;
+}
+.testi-carousel-btn:hover{
+  background: var(--gold);
+  color: #1a1a1a;
+}
+
+/* dots — force override Bootstrap defaults with higher specificity */
+#testimonialCarousel .carousel-indicators{
+  position: relative !important;
+  margin-top: 24px;
+  gap: 8px;
+}
+#testimonialCarousel .carousel-indicators button{
+  width: 8px !important;
+  height: 8px !important;
+  border-radius: 50% !important;
+  background-color: var(--border) !important;
+  opacity: 1 !important;
+  border: none !important;
+  text-indent: -9999px;
+}
+#testimonialCarousel .carousel-indicators button.active{
+  background-color: var(--gold) !important;
+}

@@ -1,43 +1,37 @@
 /* =========================================================
-   PRODUCTS CAROUSEL
+   PRODUCTS CAROUSEL (Bootstrap-based, prod- prefix)
    ========================================================= */
-.products{ padding: 70px 0; }
-.carousel{ display:flex; align-items:center; gap:12px; }
-.carousel-track{
-  display:flex;
-  gap: 20px;
-  overflow-x:auto;
-  scroll-behavior:smooth;
-  scrollbar-width:none;
-  padding: 4px 2px 16px;
-  flex:1;
-}
-.carousel-track::-webkit-scrollbar{ display:none; }
-
-.product-card{
-  flex: 0 0 190px;
-  text-align:center;
-}
-.product-img{
+.prod-img{
   aspect-ratio: 3/4;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  margin-bottom: 12px;
+  width: 100%;
+  object-fit: cover;
 }
-.product-card h3{ font-size:1rem; margin:0 0 2px; }
-.product-card p{ font-size:.8rem; color: var(--ink-soft); margin:0; }
 
-.carousel-btn{
-  flex: 0 0 auto;
-  width: 40px; height: 40px;
-  border-radius: 50%;
-  border: 1px solid var(--border);
-  background: var(--white);
+/* circular prev/next buttons, positioned outside the cards like your original design */
+.carousel-control-prev,
+.carousel-control-next{
+  width: 40px;
+  opacity: 1;
+}
+.carousel-control-prev{ left: -50px; }
+.carousel-control-next{ right: -50px; }
+
+.prod-carousel-btn{
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: var(--gold-dark);
   font-size: 1.4rem;
-  line-height:1;
-  display:flex; align-items:center; justify-content:center;
-  box-shadow: var(--shadow);
+  line-height: 1;
   transition: background .15s ease, color .15s ease;
 }
-.carousel-btn:hover{ background: var(--gold); color:#1a1a1a; }
+.prod-carousel-btn:hover{
+  background: var(--gold);
+  color: #1a1a1a;
+}
+
+/* give room for the buttons since they sit outside the container edges */
+#productsCarousel{ position: relative; }
