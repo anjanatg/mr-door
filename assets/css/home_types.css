@@ -1,51 +1,107 @@
 /* =========================================================
-   TYPES OF DOORS
+   TYPES OF DOORS — rebuilt from scratch
    ========================================================= */
-.types{ padding: 70px 0; }
-.door-types-grid{
-  display:grid;
+
+.doors-section {
+  padding: 70px 0;
+}
+
+.doors-grid {
+  display: grid;
   grid-template-columns: repeat(6, 1fr);
   gap: 14px;
+  align-items: start;
 }
-.type-card{
-  border:1px solid var(--border);
+
+.door-card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--border);
   border-radius: var(--radius);
-  overflow:hidden;
+  overflow: hidden;
   background: var(--white);
   box-shadow: var(--shadow);
   transition: transform .2s ease;
 }
-.type-card:hover{ transform: translateY(-4px); }
-.type-img{ aspect-ratio: 16/9; width:100%; object-fit:cover; display:block; }
-.type-card-footer{
-  display:flex; align-items:center; justify-content:space-between;
-  gap:8px;
+
+.door-card:hover {
+  transform: translateY(-4px);
+}
+
+.door-card-media {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+}
+
+.door-card-media .placeholder-img {
+  width: 100%;
+  height: 100%;
+}
+
+.door-card-body {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
   padding: 10px 12px;
-  font-weight:600;
-  font-size:.78rem;
 }
-.type-card-footer span{
-  overflow:hidden;
-  text-overflow:ellipsis;
-  white-space:nowrap;
+
+.door-card-name {
+  font-weight: 600;
+  font-size: .78rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
-.explore-link{
-  display:flex; align-items:center; gap:4px;
+
+.door-card-link {
+  display: flex;
+  align-items: center;
+  gap: 4px;
   color: var(--gold-dark);
-  font-size:.72rem; font-weight:600;
-  flex-shrink:0;
+  font-size: .72rem;
+  font-weight: 600;
+  flex-shrink: 0;
+  transition: color .2s ease;
 }
 
-@media (max-width: 1100px){
-  .door-types-grid{ grid-template-columns: repeat(3, 1fr); gap: 18px; }
-  .type-card-footer{ padding: 12px 14px; font-size:.85rem; }
-  .explore-link{ font-size:.78rem; }
+.door-card-link:hover {
+  color: var(--gold);
 }
 
-@media (max-width: 640px){
-  .door-types-grid{ grid-template-columns: repeat(2, 1fr); gap: 14px; }
+/* ---------- Responsive ---------- */
+
+@media (max-width: 1300px) {
+  .doors-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 
-@media (max-width: 420px){
-  .door-types-grid{ grid-template-columns: 1fr; }
+@media (max-width: 900px) {
+  .doors-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+  .door-card-body {
+    padding: 12px 14px;
+  }
+  .door-card-name {
+    font-size: .85rem;
+  }
+  .door-card-link {
+    font-size: .78rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .doors-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+}
+
+@media (max-width: 420px) {
+  .doors-grid {
+    grid-template-columns: 1fr;
+  }
 }
