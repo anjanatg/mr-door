@@ -1,0 +1,43 @@
+/* =========================================================
+   PRODUCTS CAROUSEL
+   ========================================================= */
+.products{ padding: 70px 0; }
+.carousel{ display:flex; align-items:center; gap:12px; }
+.carousel-track{
+  display:flex;
+  gap: 20px;
+  overflow-x:auto;
+  scroll-behavior:smooth;
+  scrollbar-width:none;
+  padding: 4px 2px 16px;
+  flex:1;
+}
+.carousel-track::-webkit-scrollbar{ display:none; }
+
+.product-card{
+  flex: 0 0 190px;
+  text-align:center;
+}
+.product-img{
+  aspect-ratio: 3/4;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin-bottom: 12px;
+}
+.product-card h3{ font-size:1rem; margin:0 0 2px; }
+.product-card p{ font-size:.8rem; color: var(--ink-soft); margin:0; }
+
+.carousel-btn{
+  flex: 0 0 auto;
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--white);
+  color: var(--gold-dark);
+  font-size: 1.4rem;
+  line-height:1;
+  display:flex; align-items:center; justify-content:center;
+  box-shadow: var(--shadow);
+  transition: background .15s ease, color .15s ease;
+}
+.carousel-btn:hover{ background: var(--gold); color:#1a1a1a; }

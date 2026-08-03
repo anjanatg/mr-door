@@ -1,0 +1,51 @@
+/* =========================================================
+   TYPES OF DOORS
+   ========================================================= */
+.types{ padding: 70px 0; }
+.door-types-grid{
+  display:grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 14px;
+}
+.type-card{
+  border:1px solid var(--border);
+  border-radius: var(--radius);
+  overflow:hidden;
+  background: var(--white);
+  box-shadow: var(--shadow);
+  transition: transform .2s ease;
+}
+.type-card:hover{ transform: translateY(-4px); }
+.type-img{ aspect-ratio: 16/9; width:100%; object-fit:cover; display:block; }
+.type-card-footer{
+  display:flex; align-items:center; justify-content:space-between;
+  gap:8px;
+  padding: 10px 12px;
+  font-weight:600;
+  font-size:.78rem;
+}
+.type-card-footer span{
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+.explore-link{
+  display:flex; align-items:center; gap:4px;
+  color: var(--gold-dark);
+  font-size:.72rem; font-weight:600;
+  flex-shrink:0;
+}
+
+@media (max-width: 1100px){
+  .door-types-grid{ grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .type-card-footer{ padding: 12px 14px; font-size:.85rem; }
+  .explore-link{ font-size:.78rem; }
+}
+
+@media (max-width: 640px){
+  .door-types-grid{ grid-template-columns: repeat(2, 1fr); gap: 14px; }
+}
+
+@media (max-width: 420px){
+  .door-types-grid{ grid-template-columns: 1fr; }
+}

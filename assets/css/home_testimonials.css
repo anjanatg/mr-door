@@ -1,0 +1,26 @@
+/* =========================================================
+   TESTIMONIALS
+   ========================================================= */
+.testimonials{ padding: 70px 0; }
+.testimonial-carousel{ display:flex; align-items:center; gap:12px; }
+.testimonial-card{
+  flex: 0 0 calc(33.333% - 14px);
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 26px;
+}
+.stars{ color: var(--gold); letter-spacing:2px; margin-bottom:12px; }
+.testimonial-card p{ font-size:.92rem; color: var(--ink-soft); line-height:1.6; margin: 0 0 18px; }
+.t-name{ display:block; font-weight:700; font-size:.92rem; }
+.t-loc{ display:block; font-size:.8rem; color: var(--ink-soft); }
+
+.carousel-dots{ display:flex; justify-content:center; gap:8px; margin-top:24px; }
+.carousel-dots .dot{
+  width:8px; height:8px; border-radius:50%;
+  background: var(--border);
+  cursor:pointer;
+  transition: background .15s ease, transform .15s ease;
+}
+.carousel-dots .dot.active{ background: var(--gold); transform: scale(1.2); }

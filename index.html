@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mr.Door — A Perfect Door For Every Home</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/home_about.css">
+<link rel="stylesheet" href="assets/css/home_contact.css">
+<link rel="stylesheet" href="assets/css/home_gallery.css">
+<link rel="stylesheet" href="assets/css/home_products.css">
+<link rel="stylesheet" href="assets/css/home_testimonials.css">
+<link rel="stylesheet" href="assets/css/home_types.css">
+<link rel="stylesheet" href="footer.css">
+
+</head>
+<body>
+
+  <!-- Each section below is a separate partial file (partials/*.html),
+       fetched and injected at runtime by js/main.js.
+       This must be run through a local server (see README) because
+       fetch() can't load local files over file:// -->
+
+  <div id="partial-header"       data-partial="header.html"></div>
+
+<main>
+  <div id="partial-hero"         data-partial="home/home_hero.html"></div>
+  <div id="partial-types"        data-partial="home/home_types.html"></div>
+  <div id="partial-about"        data-partial="home/home_about.html"></div>
+  <div id="partial-products"     data-partial="home/home_products.html"></div>
+  <div id="partial-gallery"      data-partial="home/home_gallery.html"></div>
+  <div id="partial-testimonials" data-partial="home/home_testimonials.html"></div>
+  <div id="partial-contact"      data-partial="home/home_contact.html"></div>
+</main>
+
+<div id="partial-footer" data-partial="footer.html"></div>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

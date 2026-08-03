@@ -1,0 +1,18 @@
+/* =========================================================
+   GALLERY
+   ========================================================= */
+.gallery{ background: var(--cream); padding: 70px 0; }
+.gallery-strip{
+  display:grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 16px;
+}
+.gallery-img{
+  aspect-ratio: 10/12;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+.gallery-cta{
+  display:flex; align-items:center; justify-content:center;
+  background: var(--white);
+}
