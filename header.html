@@ -1,34 +1,59 @@
-<header class="site-header">
-  <div class="container header-inner">
-    <a href="#home" class="logo">
-      <span class="logo-title">Mr.<span class="accent">Door</span></span>
-      <span class="logo-tag">A PERFECT DOOR FOR EVERY HOME</span>
-    </a>
+<header class="site-header sticky-top bg-white border-bottom">
+  <div class="container">
+    <nav class="navbar navbar-expand-lg py-2">
 
-    <nav class="main-nav" id="mainNav">
-      <a href="#home" class="active">Home</a>
-      <a href="#types">Types of Door</a>
-      <a href="#products">Products</a>
-      <a href="#about">Company Profile</a>
-      <a href="#gallery">Gallery</a>
-      <div class="nav-dropdown">
-        <a href="#more">More <svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5"/></svg></a>
-        <div class="dropdown-menu">
-          <a href="#testimonials">Testimonials</a>
-          <a href="#contact">Contact Us</a>
+      <!-- Logo -->
+      <a href="#home" class="navbar-brand logo d-flex flex-column lh-1">
+        <span class="logo-title">Mr.<span class="accent">Door</span></span>
+        <span class="logo-tag">A PERFECT DOOR FOR EVERY HOME</span>
+      </a>
+
+      <!-- Mobile toggle -->
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle menu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Nav + actions -->
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav main-nav mx-auto gap-lg-4 align-items-lg-center">
+          <li class="nav-item">
+            <a href="#home" class="nav-link active">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="#types" class="nav-link">Types of Door</a>
+          </li>
+          <li class="nav-item">
+            <a href="#products" class="nav-link">Products</a>
+          </li>
+          <li class="nav-item">
+            <a href="#about" class="nav-link">Company Profile</a>
+          </li>
+          <li class="nav-item">
+            <a href="#gallery" class="nav-link">Gallery</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a href="#more" class="nav-link dropdown-toggle" id="moreDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              More
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="moreDropdown">
+              <li><a href="#testimonials" class="dropdown-item">Testimonials</a></li>
+              <li><a href="#contact" class="dropdown-item">Contact Us</a></li>
+            </ul>
+          </li>
+        </ul>
+
+        <div class="header-actions d-flex align-items-center gap-3 mt-3 mt-lg-0">
+          <a href="#login" class="login-link d-flex align-items-center gap-2">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="2"/>
+              <path d="M4 20c0-4 4-6 8-6s8 2 8 6" stroke="currentColor" stroke-width="2"/>
+            </svg>
+            Log In
+          </a>
+          <a href="#signup" class="btn btn-outline">Sign Up</a>
         </div>
       </div>
-    </nav>
 
-    <div class="header-actions">
-      <a href="#login" class="login-link">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="2"/><path d="M4 20c0-4 4-6 8-6s8 2 8 6" stroke="currentColor" stroke-width="2"/></svg>
-        Log In
-      </a>
-      <a href="#signup" class="btn btn-outline">Sign Up</a>
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
+    </nav>
   </div>
 </header>
