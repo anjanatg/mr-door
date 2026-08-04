@@ -8,10 +8,10 @@
   font-size: 1.6rem;
   color: var(--ink);
 }
-.logo-title .accent { color: var(--gold); }
+.logo-title .accent { color: var(--gold); }  
 
 .logo-tag {
-  font-size: .55rem;
+  font-size: .52rem;
   letter-spacing: .08em;
   color: var(--ink-soft);
   font-weight: 600;
@@ -19,6 +19,7 @@
 
 .main-nav .nav-link {
   padding: 6px 2px;
+  white-space: nowrap;
   font-size: .92rem;
   font-weight: 500;
   color: var(--ink);

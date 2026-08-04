@@ -1,10 +1,15 @@
 /* =========================================================
    PRODUCTS CAROUSEL (Bootstrap-based, prod- prefix)
    ========================================================= */
+#productsCarousel{
+  position: relative;
+  padding: 0 60px;   /* empty space left/right for the buttons to sit in */
+}
+
 .prod-img{
   aspect-ratio: 3/4;
   width: 100%;
-  object-fit: cover;
+  object-fit: fill;
 }
 
 /* circular prev/next buttons, positioned outside the cards like your original design */

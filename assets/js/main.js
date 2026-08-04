@@ -19,8 +19,9 @@ async function loadOnePartial(placeholderDiv) {
   const filePath = placeholderDiv.getAttribute('data-partial');
 
   try {
-    const response = await fetch(filePath);
-    const htmlText = await response.text();
+    const response = await fetch(filePath);   //without the async funtion error-SyntaxError await is only valid in async functions
+                                              //fetch() - give the instant result
+    const htmlText = await response.text();   //response.text()-extracts that body as plain text
 
     // Replace the placeholder div with the actual HTML content
     placeholderDiv.outerHTML = htmlText;
@@ -41,42 +42,16 @@ async function loadAllPartials() {
   }
 
   // Once everything is loaded, turn on the page features
-  startPageFeatures();
+  startPageFeatures();  //interactive features like menu ,carousel form etc..
 }
 
 
 /* ---------- STEP 2: Turn on the page features ---------- */
 
 function startPageFeatures() {
-  setupMobileMenu();
   setupCarousels();
   setupContactForm();
-}
-
-
-/* ---------- Mobile menu button (hamburger icon) ---------- */
-
-function setupMobileMenu() {
-  const menuButton = document.getElementById('navToggle');
-  const menu = document.getElementById('mainNav');
-
-  // If the button doesn't exist, do nothing
-  if (!menuButton || !menu) {
-    return;
-  }
-
-  // Clicking the button opens/closes the menu
-  menuButton.addEventListener('click', function () {
-    menu.classList.toggle('open');
-  });
-
-  // Clicking a link inside the menu closes it (useful on mobile)
-  const allLinks = menu.querySelectorAll('a');
-  allLinks.forEach(function (link) {
-    link.addEventListener('click', function () {
-      menu.classList.remove('open');
-    });
-  });
+  setupReadMoreToggle(); 
 }
 
 
@@ -129,6 +104,21 @@ function setupContactForm() {
     statusMessage.style.color = 'green';
     statusMessage.textContent = 'Thanks! Your message has been sent.';
     form.reset();
+  });
+}
+/* ---------- About malayalam content "Read More" toggle ---------- */
+
+function setupReadMoreToggle() {
+  const content = document.getElementById('aboutNoteContent');
+  const button = document.getElementById('aboutNoteToggle');
+
+  if (!content || !button) {
+    return;
+  }
+
+  button.addEventListener('click', function () {
+    const isExpanded = content.classList.toggle('expanded');
+    button.textContent = isExpanded ? 'Show Less' : 'Show More';
   });
 }
 
