@@ -3,11 +3,11 @@
    ========================================================= */
 .hero{
   background: url('../images/banner.png') center center/cover no-repeat;
-  min-height: 100vh;
+  min-height: 80vh;
 }
 .hero-title {
   font-family: var(--font-display);
-  font-size: clamp(2.2rem, 4vw, 3.4rem);
+  font-size: clamp(2.2rem, 4vw, 3.4rem); /*automatically adjusts the font size based on the screen*/
   line-height: 1.1;
 }
 
@@ -18,7 +18,7 @@
 }
 
 .hero-image-wrap {
-  border-radius: 50% 50% 12px 12px / 60% 60% 12px 12px;
+  border-radius: 50% 50% 12px 12px / 60% 60% 12px 12px;  /*border-radius:Horizontal Radius/ Vertical Radius*/
   overflow: hidden;
   max-width: 420px;
 }
