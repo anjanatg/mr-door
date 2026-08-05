@@ -9,6 +9,11 @@
   font-size: 0.85rem;
   color: var(--gold);
 }
+.about-title {
+  font-family: var(--font-display);
+  font-size: 45px;
+}
+
 .ml-text {
   font-family: 'Noto Sans Malayalam', sans-serif;
   line-height: 1.6;
