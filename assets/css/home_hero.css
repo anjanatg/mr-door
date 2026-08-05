@@ -3,7 +3,7 @@
    ========================================================= */
 .hero{
   background: url('../images/banner.png') center center/cover no-repeat;
-  min-height: 80vh;
+  min-height: 90vh;
 }
 .hero-title {
   font-family: var(--font-display);

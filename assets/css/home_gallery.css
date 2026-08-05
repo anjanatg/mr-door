@@ -4,12 +4,29 @@
 .gallery{
   background: var(--cream-deep); 
   width: 100%;
+
 }
 .gall-img{
   aspect-ratio: 1/1;
   object-fit: cover;
+  transform-origin: center;
+  transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+  will-change: transform;
 }
 
+
+.gall-item:hover {
+  opacity: 1;
+}
+
+.gall-item:hover .gall-img{
+  transform: scale(1.08);
+}
+
+.gallery-row {
+  padding: 20px 100px 100px 100px;
+  
+}
 .btn-gold{
   background: var(--gold);
   color: #1a1a1a;

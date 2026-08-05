@@ -1,14 +1,20 @@
 /* =========================================================
    DOOR TYPE CARDS (Bootstrap-based, door- prefix)
    ========================================================= */
+
+.doors-section {
+  padding: 0 0 100px 0;
+}
 .door-card{
   display: block;
   border: 1px solid var(--border);
   border-radius: var(--radius);
   overflow: hidden;
   background: var(--white);
-  transition: box-shadow .15s ease, transform .15s ease;
+  transition: box-shadow 0.3s ease, transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  will-change: transform, box-shadow;
 }
+
 .door-card:hover{
   box-shadow: var(--shadow);
   transform: translateY(-6px);
