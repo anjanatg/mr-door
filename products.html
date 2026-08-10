@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Products - MrDoor | The Door Specialist</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --red:#d21f1f;
+    --dark:#111111;
+    --graytext:#6b6b6b;
+    --lightbg:#f5f4f2;
+  }
+  body{ font-family:'Poppins', sans-serif; color:#1a1a1a; }
+  a{ text-decoration:none; }
+
+  /* Top bar */
+  .topbar{ background:var(--dark); color:#cfcfcf; font-size:.78rem; padding:6px 0; }
+  .topbar a{ color:#fff; }
+  .topbar .btn-dealer{ background:var(--red); color:#fff; padding:6px 16px; font-weight:600; font-size:.75rem; }
+
+  /* Navbar */
+  .navbar-custom{ padding:14px 0; background:#fff; }
+  .logo-box{ background:var(--red); color:#fff; font-weight:800; font-size:1.6rem; padding:2px 8px; letter-spacing:1px; }
+  .logo-text{ font-weight:800; font-size:1.6rem; letter-spacing:1px; color:#111; }
+  .logo-sub{ font-size:.6rem; letter-spacing:2px; color:#777; display:block; margin-top:-4px; }
+  .nav-link-custom{ font-weight:600; font-size:.85rem; color:#222 !important; margin:0 12px; letter-spacing:.3px; }
+  .nav-link-custom.active{ color:var(--red) !important; border-bottom:2px solid var(--red); padding-bottom:4px; }
+  .phone-block{ display:flex; align-items:center; gap:10px; }
+  .phone-icon{ width:38px;height:38px;border-radius:50%; background:var(--red); display:flex;align-items:center;justify-content:center;color:#fff; }
+  .phone-number{ font-weight:700; font-size:1rem; color:#111; }
+  .phone-label{ font-size:.7rem; color:#888; }
+
+  /* Page hero */
+  .page-hero{
+    position:relative;
+    min-height:280px;
+    display:flex;
+    align-items:center;
+    background:linear-gradient(90deg, rgba(10,10,10,.88) 40%, rgba(10,10,10,.45) 100%),
+      url('https://images.unsplash.com/photo-1600566752355-35792bedcfea?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat;
+  }
+  .page-hero .eyebrow{ color:var(--red); font-weight:700; letter-spacing:2px; font-size:.78rem; }
+  .page-hero h1{ color:#fff; font-weight:700; font-size:2.4rem; }
+  .breadcrumb-custom{ font-size:.8rem; color:#d8d8d8; }
+  .breadcrumb-custom a{ color:#d8d8d8; }
+  .breadcrumb-custom span{ color:var(--red); }
+
+  .section-eyebrow{ color:var(--red); font-weight:700; letter-spacing:1.5px; font-size:.72rem; }
+  .section-title{ font-weight:700; font-size:1.9rem; line-height:1.3; }
+  .hero-divider{ width:60px;height:3px;background:var(--red);margin:16px 0; }
+
+  .btn-explore{ background:var(--red); color:#fff; font-weight:600; font-size:.85rem; padding:12px 22px; border:none; }
+  .btn-explore:hover{ background:#a91717; color:#fff; }
+  .btn-outline-custom{ border:1px solid #111; color:#111; font-weight:600; font-size:.78rem; padding:10px 18px; }
+  .btn-outline-custom:hover{ background:#111; color:#fff; }
+
+  /* Filter pills */
+  .filter-strip{ background:var(--lightbg); padding:26px 0; border-bottom:1px solid #eee; }
+  .filter-pill{
+    background:#fff; border:1px solid #ddd; color:#333; font-weight:600; font-size:.8rem;
+    padding:9px 20px; margin:4px; cursor:pointer; transition:.2s;
+  }
+  .filter-pill:hover{ border-color:var(--red); color:var(--red); }
+  .filter-pill.active{ background:var(--dark); border-color:var(--dark); color:#fff; }
+
+  /* Product cards */
+  .products-grid{ padding:60px 0; }
+  .prod-card{
+    background:#fff; border:1px solid #eee; overflow:hidden; height:100%;
+    transition:.25s; display:flex; flex-direction:column;
+  }
+  .prod-card:hover{ box-shadow:0 12px 30px rgba(0,0,0,.08); border-color:#e2e2e2; transform:translateY(-3px); }
+  .prod-img-wrap{ position:relative; overflow:hidden; height:230px; }
+  .prod-img-wrap img{ width:100%; height:100%; object-fit:cover; transition:.4s; }
+  .prod-card:hover .prod-img-wrap img{ transform:scale(1.06); }
+  .prod-tag{
+    position:absolute; top:14px; left:14px; background:var(--red); color:#fff;
+    font-size:.68rem; font-weight:700; letter-spacing:.5px; padding:5px 12px;
+  }
+  .prod-body{ padding:22px 22px 24px; flex:1; display:flex; flex-direction:column; }
+  .prod-body h5{ font-weight:700; margin-bottom:8px; }
+  .prod-body p{ color:var(--graytext); font-size:.85rem; line-height:1.65; margin-bottom:16px; flex:1; }
+  .prod-features{ list-style:none; padding:0; margin:0 0 18px; }
+  .prod-features li{ font-size:.78rem; color:#444; margin-bottom:6px; display:flex; align-items:center; gap:8px; }
+  .prod-features li i{ color:var(--red); font-size:.85rem; }
+  .prod-footer{ display:flex; justify-content:space-between; align-items:center; border-top:1px solid #f0f0f0; padding-top:16px; }
+  .prod-link{ color:var(--red); font-weight:600; font-size:.8rem; }
+  .prod-link i{ transition:.2s; }
+  .prod-link:hover i{ transform:translateX(3px); }
+
+  /* Why choose */
+  .value-icon{
+    width:56px;height:56px; border-radius:50%; background:var(--lightbg);
+    display:flex; align-items:center; justify-content:center; color:var(--red); font-size:1.5rem; margin-bottom:0;
+  }
+
+  /* Stats */
+  .stats-strip{ background:var(--dark); color:#fff; padding:50px 0; }
+  .stat-item2{ text-align:center; }
+  .stat-item2 .num{ font-size:2.4rem; font-weight:800; color:var(--red); }
+  .stat-item2 .lbl{ font-size:.85rem; color:#bdbdbd; margin-top:4px; }
+
+  /* CTA banner */
+  .cta-banner{
+    background:linear-gradient(90deg, rgba(10,10,10,.92) 40%, rgba(10,10,10,.55) 100%),
+      url('https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=1400&auto=format&fit=crop') center/cover no-repeat;
+    padding:60px 0;
+    color:#fff;
+  }
+  .cta-banner h3{ font-weight:700; font-size:1.7rem; }
+  .cta-banner p{ color:#d8d8d8; }
+
+  /* Newsletter */
+  .newsletter-strip{ background:#000; padding:30px 0; color:#fff; }
+  .newsletter-strip input{ border:none; padding:12px 16px; width:100%; font-size:.85rem; }
+  .newsletter-strip .btn-subscribe{ background:var(--red); color:#fff; font-weight:700; font-size:.78rem; padding:12px 24px; letter-spacing:.5px; border:none; }
+
+  /* Footer */
+  .footer-main{ background:var(--dark); color:#bdbdbd; padding:50px 0 20px; font-size:.85rem; }
+  .footer-main h6{ color:#fff; font-weight:700; margin-bottom:16px; font-size:.85rem; letter-spacing:.5px; }
+  .footer-main ul{ list-style:none; padding:0; margin:0; }
+  .footer-main ul li{ margin-bottom:10px; }
+  .footer-main ul li a{ color:#bdbdbd; }
+  .footer-main ul li a:hover{ color:var(--red); }
+  .footer-main p{ color:#999; }
+  .social-icon{ width:34px;height:34px;border-radius:50%; border:1px solid #444; display:flex;align-items:center;justify-content:center; color:#ccc; font-size:.9rem; }
+  .footer-bottom{ border-top:1px solid #2a2a2a; padding-top:18px; margin-top:30px; font-size:.78rem; color:#888; }
+
+  @media (max-width:991px){
+    .page-hero h1{ font-size:1.8rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Top bar -->
+<div class="topbar">
+  <div class="container d-flex justify-content-between align-items-center">
+    <span>Premium Doors &amp; Windows Solutions</span>
+    <div class="d-none d-md-flex align-items-center gap-4">
+      <a href="#"><i class="bi bi-person-circle me-1"></i>Dealer Login</a>
+      <a href="#"><i class="bi bi-download me-1"></i>Download Brochure</a>
+      <a href="#" class="btn-dealer">Become a Dealer</a>
+    </div>
+  </div>
+</div>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-custom">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+      <span class="logo-box">MR</span>
+      <span>
+        <span class="logo-text">DOOR</span>
+        <span class="logo-sub">— THE DOOR SPECIALIST —</span>
+      </span>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav mx-auto my-3 my-lg-0 align-items-lg-center">
+        <li class="nav-item"><a class="nav-link nav-link-custom" href="index.html">HOME</a></li>
+        <li class="nav-item"><a class="nav-link nav-link-custom" href="about.html">ABOUT US</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link nav-link-custom active dropdown-toggle" href="#" data-bs-toggle="dropdown">PRODUCTS</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#gi-doors">GI Doors</a></li>
+            <li><a class="dropdown-item" href="#wpc-doors">WPC Doors</a></li>
+            <li><a class="dropdown-item" href="#upvc-windows">uPVC Windows</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link nav-link-custom" href="#">PROJECTS</a></li>
+        <li class="nav-item"><a class="nav-link nav-link-custom" href="#">DEALER NETWORK</a></li>
+        <li class="nav-item"><a class="nav-link nav-link-custom" href="#">BLOG</a></li>
+        <li class="nav-item"><a class="nav-link nav-link-custom" href="#">CONTACT US</a></li>
+      </ul>
+    </div>
+    <div class="phone-block d-none d-lg-flex">
+      <div class="phone-icon"><i class="bi bi-telephone-fill"></i></div>
+      <div>
+        <div class="phone-number">+91 85906 88888</div>
+        <div class="phone-label">Talk to our expert</div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Page hero -->
+<section class="page-hero">
+  <div class="container">
+    <div class="eyebrow">OUR PRODUCTS</div>
+    <h1 class="mt-2">Doors &amp; Windows Built to Last</h1>
+    <div class="breadcrumb-custom mt-2"><a href="index.html">Home</a> / <span>Products</span></div>
+  </div>
+</section>
+
+<!-- Filter strip -->
+<div class="filter-strip">
+  <div class="container text-center">
+    <button class="filter-pill active" data-filter="all">All Products</button>
+    <button class="filter-pill" data-filter="gi">GI Doors</button>
+    <button class="filter-pill" data-filter="wpc">WPC Doors</button>
+    <button class="filter-pill" data-filter="upvc">uPVC Windows</button>
+    <button class="filter-pill" data-filter="fibre">Fibre Doors</button>
+    <button class="filter-pill" data-filter="steel">Steel Doors</button>
+    <button class="filter-pill" data-filter="interior">Interior Doors</button>
+    <button class="filter-pill" data-filter="frames">Frames &amp; Accessories</button>
+  </div>
+</div>
+
+<!-- Products Grid -->
+<section class="products-grid">
+  <div class="container">
+    <div class="row g-4" id="productRow">
+
+      <div class="col-md-6 col-lg-4 prod-item" data-cat="gi" id="gi-doors">
+        <div class="prod-card">
+          <div class="prod-img-wrap">
+            <img src="https://images.unsplash.com/photo-1587502537745-84b86da1204f?q=80&w=600&auto=format&fit=crop" alt="GI Doors">
+            <span class="prod-tag">BESTSELLER</span>
+          </div>
+          <div class="prod-body">
+            <h5>GI Doors</h5>
+            <p>Galvanised iron doors engineered for maximum security, built to resist rust and dents even in harsh outdoor conditions.</p>
+            <ul class="prod-features">
+              <li><i class="bi bi-check-circle-fill"></i>Rust &amp; corrosion resistant</li>
+              <li><i class="bi bi-check-circle-fill"></i>Custom sizes available</li>
+              <li><i class="bi bi-check-circle-fill"></i>10-year structural warranty</li>
+            </ul>
+            <div class="prod-footer">
+              <span class="text-muted small">Starting from ₹8,500</span>
+              <a href="#" class="prod-link">ENQUIRE NOW <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 prod-item" data-cat="wpc" id="wpc-doors">
+        <div class="prod-card">
+          <div class="prod-img-wrap">
+            <img src="https://images.unsplash.com/photo-1600566752355-35792bedcfea?q=80&w=600&auto=format&fit=crop" alt="WPC Doors">
+          </div>
+          <div class="prod-body">
+            <h5>WPC Doors</h5>
+            <p>Wood-plastic composite doors with a natural timber finish that stay unaffected by moisture, termites, or warping.</p>
+            <ul class="prod-features">
+              <li><i class="bi bi-check-circle-fill"></i>100% waterproof &amp; termite-proof</li>
+              <li><i class="bi bi-check-circle-fill"></i>Wood-textured finish</li>
+              <li><i class="bi bi-check-circle-fill"></i>Ideal for bathrooms &amp; kitchens</li>
+            </ul>
+            <div class="prod-footer">
+              <span class="text-muted small">Starting from ₹6,200</span>
+              <a href="#" class="prod-link">ENQUIRE NOW <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 prod-item" data-cat="upvc" id="upvc-windows">
+        <div class="prod-card">
+          <div class="prod-img-wrap">
+            <img src="https://images.unsplash.com/photo-1600566752734-2a0cd53f66fa?q=80&w=600&auto=format&fit=crop" alt="uPVC Windows">
+            <span class="prod-tag">ENERGY EFFICIENT</span>
+          </div>
+          <div class="prod-body">
+            <h5>uPVC Windows</h5>
+            <p>Sleek, low-maintenance windows that seal out noise and dust while improving insulation year-round.</p>
+            <ul class="prod-features">
+              <li><i class="bi bi-check-circle-fill"></i>Sound &amp; dust insulation</li>
+              <li><i class="bi bi-check-circle-fill"></i>UV &amp; weather resistant</li>
+              <li><i class="bi bi-check-circle-fill"></i>Sliding &amp; casement styles</li>
+            </ul>
+            <div class="prod-footer">
+              <span class="text-muted small">Starting from ₹450/sqft</span>
+              <a href="#" class="prod-link">ENQUIRE NOW <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 prod-item" data-cat="fibre">
+        <div class="prod-card">
+          <div class="prod-img-wrap">
+            <img src="https://images.unsplash.com/photo-1519710164239-da123dc03ef4?q=80&w=600&auto=format&fit=crop" alt="Fibre Doors">
+          </div>
+          <div class="prod-body">
+            <h5>Fibre Doors</h5>
+            <p>Lightweight, moisture-proof fibre doors with a smooth, paint-ready finish suited to modern interiors.</p>
+            <ul class="prod-features">
+              <li><i class="bi bi-check-circle-fill"></i>Lightweight &amp; easy to install</li>
+              <li><i class="bi bi-check-circle-fill"></i>Moisture &amp; warp resistant</li>
+              <li><i class="bi bi-check-circle-fill"></i>Wide design &amp; colour range</li>
+            </ul>
+            <div class="prod-footer">
+              <span class="text-muted small">Starting from ₹5,800</span>
+              <a href="#" class="prod-link">ENQUIRE NOW <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 prod-item" data-cat="steel">
+        <div class="prod-card">
+          <div class="prod-img-wrap">
+            <img src="https://images.unsplash.com/photo-1600566752447-f4396fb90da5?q=80&w=600&auto=format&fit=crop" alt="Steel Doors">
+            <span class="prod-tag">HIGH SECURITY</span>
+          </div>
+          <div class="prod-body">
+            <h5>Steel Doors</h5>
+            <p>Heavy-gauge steel doors built for main entrances and commercial spaces where security is non-negotiable.</p>
+            <ul class="prod-features">
+              <li><i class="bi bi-check-circle-fill"></i>Multi-point locking compatible</li>
+              <li><i class="bi bi-check-circle-fill"></i>Fire &amp; impact resistant</li>
+              <li><i class="bi bi-check-circle-fill"></i>Powder-coated finish</li>
+            </ul>
+            <div class="prod-footer">
+              <span class="text-muted small">Starting from ₹11,000</span>
+              <a href="#" class="prod-link">ENQUIRE NOW <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 prod-item" data-cat="interior">
+        <div class="prod-card">
+          <div class="prod-img-wrap">
+            <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=600&auto=format&fit=crop" alt="Interior Doors">
+          </div>
+          <div class="prod-body">
+            <h5>Interior Doors</h5>
+            <p>Elegant flush and panel doors designed to complement any interior style, from minimal to classic.</p>
+            <ul class="prod-features">
+              <li><i class="bi bi-check-circle-fill"></i>Flush, panel &amp; louvered styles</li>
+              <li><i class="bi bi-check-circle-fill"></i>Veneer &amp; laminate finishes</li>
+              <li><i class="bi bi-check-circle-fill"></i>Sound-dampening core</li>
+            </ul>
+            <div class="prod-footer">
+              <span class="text-muted small">Starting from ₹4,500</span>
+              <a href="#" class="prod-link">ENQUIRE NOW <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 prod-item" data-cat="frames">
+        <div class="prod-card">
+          <div class="prod-img-wrap">
+            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=600&auto=format&fit=crop" alt="Frames and Accessories">
+          </div>
+          <div class="prod-body">
+            <h5>Frames &amp; Accessories</h5>
+            <p>Durable frames, hinges, handles and locking hardware engineered to match the life of your door.</p>
+            <ul class="prod-features">
+              <li><i class="bi bi-check-circle-fill"></i>Steel &amp; WPC frame options</li>
+              <li><i class="bi bi-check-circle-fill"></i>Premium hardware included</li>
+              <li><i class="bi bi-check-circle-fill"></i>Sold separately or as a set</li>
+            </ul>
+            <div class="prod-footer">
+              <span class="text-muted small">Starting from ₹1,200</span>
+              <a href="#" class="prod-link">ENQUIRE NOW <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="text-center mt-3 d-none" id="noResults">
+      <p class="text-muted">No products found in this category yet — check back soon.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Stats -->
+<div class="stats-strip">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-6 col-lg-3"><div class="stat-item2"><div class="num">7</div><div class="lbl">Product Categories</div></div></div>
+      <div class="col-6 col-lg-3"><div class="stat-item2"><div class="num">5000+</div><div class="lbl">Projects Completed</div></div></div>
+      <div class="col-6 col-lg-3"><div class="stat-item2"><div class="num">20+</div><div class="lbl">Years of Excellence</div></div></div>
+      <div class="col-6 col-lg-3"><div class="stat-item2"><div class="num">100%</div><div class="lbl">Customer Satisfaction</div></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA Banner -->
+<section class="cta-banner">
+  <div class="container">
+    <div class="row align-items-center g-4">
+      <div class="col-lg-8">
+        <div class="section-eyebrow">NEED HELP CHOOSING?</div>
+        <h3 class="mt-2">Not sure which door is right for your space?</h3>
+        <p class="mb-0">Talk to our product experts for a free consultation and quote.</p>
+      </div>
+      <div class="col-lg-4 text-lg-end">
+        <a href="#" class="btn btn-explore">REQUEST A QUOTE <i class="bi bi-arrow-right"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Newsletter -->
+<div class="newsletter-strip">
+  <div class="container">
+    <div class="row align-items-center g-3">
+      <div class="col-lg-5">
+        <h5 class="mb-1">Stay Updated With <span style="color:var(--red);">MrDoor</span></h5>
+        <p class="mb-0 text-muted small">Subscribe to our newsletter for latest updates, new products and offers.</p>
+      </div>
+      <div class="col-lg-7">
+        <div class="d-flex gap-2 flex-wrap flex-lg-nowrap">
+          <input type="email" placeholder="Enter your email address">
+          <button class="btn-subscribe flex-shrink-0">SUBSCRIBE</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer-main">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-3">
+        <a class="navbar-brand d-flex align-items-center gap-2 mb-3" href="index.html">
+          <span class="logo-box">MR</span>
+          <span>
+            <span class="logo-text">DOOR</span>
+            <span class="logo-sub">— THE DOOR SPECIALIST —</span>
+          </span>
+        </a>
+        <p>Premium doors and windows crafted for strength, style and security.</p>
+        <div class="d-flex gap-2 mt-3">
+          <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="social-icon"><i class="bi bi-youtube"></i></a>
+          <a href="#" class="social-icon"><i class="bi bi-linkedin"></i></a>
+        </div>
+      </div>
+      <div class="col-6 col-lg-2">
+        <h6>COMPANY</h6>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">News &amp; Events</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-lg-2">
+        <h6>PRODUCTS</h6>
+        <ul>
+          <li><a href="#gi-doors">GI Doors</a></li>
+          <li><a href="#wpc-doors">WPC Doors</a></li>
+          <li><a href="#upvc-windows">uPVC Windows</a></li>
+          <li><a href="#">Fibre Doors</a></li>
+          <li><a href="#">Steel Doors</a></li>
+          <li><a href="#">Interior Doors</a></li>
+          <li><a href="#">Frames &amp; Accessories</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-lg-2">
+        <h6>SUPPORT</h6>
+        <ul>
+          <li><a href="#">Downloads</a></li>
+          <li><a href="#">Warranty</a></li>
+          <li><a href="#">FAQ's</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-lg-3">
+        <h6>CONTACT US</h6>
+        <ul>
+          <li><i class="bi bi-telephone me-2"></i>+91 85906 88888</li>
+          <li><i class="bi bi-envelope me-2"></i>info@mrdoor.in</li>
+          <li><i class="bi bi-geo-alt me-2"></i>Kinfra Park, Kakkanad,<br>Kochi, Kerala, India - 682037</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom d-flex justify-content-between flex-wrap gap-2">
+      <span>© 2024 MrDoor India. All Rights Reserved.</span>
+      <span><a href="#" class="text-decoration-none" style="color:#888;">Privacy Policy</a> &nbsp;|&nbsp; <a href="#" class="text-decoration-none" style="color:#888;">Terms &amp; Conditions</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  const pills = document.querySelectorAll('.filter-pill');
+  const items = document.querySelectorAll('.prod-item');
+  const noResults = document.getElementById('noResults');
+
+  pills.forEach(pill => {
+    pill.addEventListener('click', () => {
+      pills.forEach(p => p.classList.remove('active'));
+      pill.classList.add('active');
+      const filter = pill.dataset.filter;
+      let visibleCount = 0;
+
+      items.forEach(item => {
+        const show = filter === 'all' || item.dataset.cat === filter;
+        item.style.display = show ? '' : 'none';
+        if (show) visibleCount++;
+      });
+
+      noResults.classList.toggle('d-none', visibleCount !== 0);
+    });
+  });
+</script>
+</body>
+</html>
