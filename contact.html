@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us - MrDoor | The Door Specialist</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<link rel="stylesheet" href="assets/css/contact.css" />
+<script src="assets/js/contact.js" ></script>
+</head>
+<body>
+
+<!-- Top bar -->
+<div class="topbar">
+  <div class="container-fluid d-flex justify-content-between align-items-center">
+    <span>Premium Doors &amp; Windows Solutions</span>
+    <div class="d-none d-md-flex align-items-center gap-4">
+      <a href="#"><i class="bi bi-person-circle me-1"></i>Login</a>
+      <a href="#" class="btn-dealer">Become a Dealer</a>
+    </div>
+  </div>
+</div>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-custom">
+  <div class="container-fluid px-5">
+    <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+      <span class="logo-box">MR</span>
+      <span>
+        <span class="logo-text">DOOR</span>
+        <span class="logo-sub">— THE DOOR SPECIALIST —</span>
+      </span>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav mx-auto my-3 my-lg-0 align-items-lg-center">
+        <li class="nav-item"><a class="nav-link nav-link-custom" href="index.html">HOME</a></li>
+        <li class="nav-item"><a class="nav-link nav-link-custom" href="about.html">ABOUT US</a></li>
+        <li class="nav-item"><a class="nav-link nav-link-custom" href="products.html">PRODUCTS</a></li>
+        <li class="nav-item"><a class="nav-link nav-link-custom" href="gallery.html">GALLERY</a></li>
+        <li class="nav-item"><a class="nav-link nav-link-custom active" href="contact.html">CONTACT US</a></li>
+      </ul>
+    </div>
+    <div class="phone-block d-none d-lg-flex">
+      <div class="phone-icon"><i class="bi bi-telephone-fill"></i></div>
+      <div>
+        <div class="phone-number">+91 9947 400 500</div>
+        <div class="phone-label">Talk to us</div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Page hero -->
+<section class="page-hero">
+  <div class="container">
+    <div class="eyebrow">GET IN TOUCH</div>
+    <h1 class="mt-2">We'd Love to Hear From You</h1>
+    <div class="breadcrumb-custom mt-2"><a href="index.html">Home</a> / <span>Contact Us</span></div>
+  </div>
+</section>
+
+<!-- Quick contact cards -->
+<div class="container quick-strip">
+  <div class="row g-3">
+    <div class="col-md-4">
+      <div class="quick-card">
+        <div class="quick-icon"><i class="bi bi-telephone-fill"></i></div>
+        <div>
+          <h6>Call Us</h6>
+          <p><a href="tel:+918590688888">+91 85906 88888</a></p>
+          <p><a href="tel:+914842345678">+91 484 234 5678</a></p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="quick-card">
+        <div class="quick-icon"><i class="bi bi-envelope-fill"></i></div>
+        <div>
+          <h6>Email Us</h6>
+          <p><a href="mailto:info@mrdoor.in">info@mrdoor.in</a></p>
+          <p><a href="mailto:sales@mrdoor.in">sales@mrdoor.in</a></p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="quick-card">
+        <div class="quick-icon"><i class="bi bi-clock-fill"></i></div>
+        <div>
+          <h6>Working Hours</h6>
+          <p>Mon – Sat: 9:00 AM – 7:00 PM</p>
+          <p>Sunday: Closed</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Contact form + side panel -->
+<section class="contact-section">
+  <div class="container">
+    <div class="row g-0 shadow-sm">
+      <div class="col-lg-7">
+        <div class="p-4 p-lg-5 bg-white h-100">
+          <div class="section-eyebrow">SEND US A MESSAGE</div>
+          <div class="section-title mt-2">Get a Free Quote Today</div>
+          <div class="hero-divider"></div>
+          <p class="text-muted small mb-4">Fill out the form and our team will get back to you within 24 hours.</p>
+
+          <div class="form-toast" id="formToast">
+            <i class="bi bi-check-circle-fill"></i>
+            <span>Thanks! Your message has been received — we'll be in touch shortly.</span>
+          </div>
+
+          <form id="contactForm">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label class="form-label-custom">FULL NAME *</label>
+                <input type="text" class="form-control-custom" placeholder="Your name" required>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label-custom">PHONE NUMBER *</label>
+                <input type="tel" class="form-control-custom" placeholder="+91 00000 00000" required>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label-custom">EMAIL ADDRESS *</label>
+                <input type="email" class="form-control-custom" placeholder="you@example.com" required>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label-custom">I'M INTERESTED IN</label>
+                <select class="form-control-custom">
+                  <option>GI Doors</option>
+                  <option>WPC Doors</option>
+                  <option>uPVC Windows</option>
+                  <option>Fibre Doors</option>
+                  <option>Steel Doors</option>
+                  <option>Interior Doors</option>
+                  <option>Frames &amp; Accessories</option>
+                  <option>Becoming a Dealer</option>
+                  <option>Something else</option>
+                </select>
+              </div>
+              <div class="col-12">
+                <label class="form-label-custom">YOUR MESSAGE</label>
+                <textarea class="form-control-custom" placeholder="Tell us a bit about your project..."></textarea>
+              </div>
+              <div class="col-12">
+                <button type="submit" class="btn btn-explore">SEND MESSAGE <i class="bi bi-send ms-1"></i></button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="col-lg-5">
+        <div class="contact-side">
+          <div class="section-eyebrow">CONTACT INFO</div>
+          <div class="section-title mt-2">Visit Our Showroom</div>
+          <p class="mt-2">Come see our full range of doors and windows in person, or reach out through any of the channels below.</p>
+          <ul class="side-list">
+            <li>
+              <div class="icn"><i class="bi bi-geo-alt"></i></div>
+              <div>
+                <div class="lbl">Address</div>
+                <div class="val">Kinfra Park, Kakkanad,<br>Kochi, Kerala, India – 682037</div>
+              </div>
+            </li>
+            <li>
+              <div class="icn"><i class="bi bi-telephone"></i></div>
+              <div>
+                <div class="lbl">Phone</div>
+                <div class="val">+91 85906 88888</div>
+              </div>
+            </li>
+            <li>
+              <div class="icn"><i class="bi bi-envelope"></i></div>
+              <div>
+                <div class="lbl">Email</div>
+                <div class="val">info@mrdoor.in</div>
+              </div>
+            </li>
+            <li>
+              <div class="icn"><i class="bi bi-clock"></i></div>
+              <div>
+                <div class="lbl">Hours</div>
+                <div class="val">Mon – Sat, 9 AM – 7 PM</div>
+              </div>
+            </li>
+          </ul>
+          <div class="side-social">
+            <a href="#"><i class="bi bi-facebook"></i></a>
+            <a href="#"><i class="bi bi-instagram"></i></a>
+            <a href="#"><i class="bi bi-youtube"></i></a>
+            <a href="#"><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Map -->
+<section class="map-section">
+  <div class="map-wrap">
+    <iframe src="https://www.google.com/maps?q=Kinfra%20Park%20Kakkanad%20Kochi%20Kerala&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <div class="map-pin-card">
+      <h6><i class="bi bi-geo-alt-fill text-danger me-1"></i>MrDoor India</h6>
+      <p>Kinfra Park, Kakkanad, Kochi, Kerala, India - 682037</p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section">
+  <div class="container">
+    <div class="text-center mb-5">
+      <div class="section-eyebrow">GOT QUESTIONS?</div>
+      <div class="section-title mt-2">Frequently Asked Questions</div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-lg-9">
+        <div class="accordion accordion-custom" id="faqAccordion">
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                How long does it take to get a quote?
+              </button>
+            </h2>
+            <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">We typically respond to enquiries within 24 hours with a preliminary quote. For custom sizes or bulk orders, our team may schedule a quick call to understand your requirements before finalizing pricing.</div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                Do you offer installation services?
+              </button>
+            </h2>
+            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">Yes, our trained installation teams cover most major cities and work closely with our dealer network across 28 states to ensure proper fitting and after-sales support.</div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                Can I get doors made to custom sizes?
+              </button>
+            </h2>
+            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">Absolutely. Most of our product lines, including GI, WPC and Steel doors, are available in custom dimensions to fit non-standard openings.</div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                How do I become a MrDoor dealer?
+              </button>
+            </h2>
+            <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">Select "Becoming a Dealer" in the contact form above or use the "Become a Dealer" button in the top bar, and our partnerships team will reach out with the next steps.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Newsletter -->
+<div class="newsletter-strip">
+  <div class="container">
+    <div class="row align-items-center g-3">
+      <div class="col-lg-5">
+        <h5 class="mb-1">Stay Updated With <span style="color:var(--red);">MrDoor</span></h5>
+        <p class="mb-0 text-muted small">Subscribe to our newsletter for latest updates, new products and offers.</p>
+      </div>
+      <div class="col-lg-7">
+        <div class="d-flex gap-2 flex-wrap flex-lg-nowrap">
+          <input type="email" placeholder="Enter your email address">
+          <button class="btn-subscribe flex-shrink-0">SUBSCRIBE</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer-main">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-3">
+        <a class="navbar-brand d-flex align-items-center gap-2 mb-3" href="index.html">
+          <span class="logo-box">MR</span>
+          <span>
+            <span class="logo-text">DOOR</span>
+            <span class="logo-sub">— THE DOOR SPECIALIST —</span>
+          </span>
+        </a>
+        <p>Premium doors and windows crafted for strength, style and security.</p>
+        <div class="d-flex gap-2 mt-3">
+          <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="social-icon"><i class="bi bi-youtube"></i></a>
+          <a href="#" class="social-icon"><i class="bi bi-linkedin"></i></a>
+        </div>
+      </div>
+      <div class="col-6 col-lg-2">
+        <h6>COMPANY</h6>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">News &amp; Events</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-lg-2">
+        <h6>PRODUCTS</h6>
+        <ul>
+          <li><a href="products.html#gi-doors">GI Doors</a></li>
+          <li><a href="products.html#wpc-doors">WPC Doors</a></li>
+          <li><a href="products.html#upvc-windows">uPVC Windows</a></li>
+          <li><a href="products.html">Fibre Doors</a></li>
+          <li><a href="products.html">Steel Doors</a></li>
+          <li><a href="products.html">Interior Doors</a></li>
+          <li><a href="products.html">Frames &amp; Accessories</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-lg-2">
+        <h6>SUPPORT</h6>
+        <ul>
+          <li><a href="#">Downloads</a></li>
+          <li><a href="#">Warranty</a></li>
+          <li><a href="#">FAQ's</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-lg-3">
+        <h6>CONTACT US</h6>
+        <ul>
+          <li><i class="bi bi-telephone me-2"></i>+91 85906 88888</li>
+          <li><i class="bi bi-envelope me-2"></i>info@mrdoor.in</li>
+          <li><i class="bi bi-geo-alt me-2"></i>Kinfra Park, Kakkanad,<br>Kochi, Kerala, India - 682037</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom d-flex justify-content-between flex-wrap gap-2">
+      <span>© 2024 MrDoor India. All Rights Reserved.</span>
+      <span><a href="#" class="text-decoration-none" style="color:#888;">Privacy Policy</a> &nbsp;|&nbsp; <a href="#" class="text-decoration-none" style="color:#888;">Terms &amp; Conditions</a></span>
+    </div>
+  </div>
+</footer>
+
+
+</body>
+</html>
