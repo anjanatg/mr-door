@@ -16,7 +16,7 @@
   /* Navbar */
   .navbar-custom{ padding:14px 0; background:#fff; }
   .logo-box{ background:var(--red); color:#fff; font-weight:800; font-size:1.6rem; padding:2px 8px; letter-spacing:1px; }
-  .logo-text{ font-weight:800; font-size:1.6rem; letter-spacing:1px; color:#111; }
+  .logo-text{ font-weight:800; font-size:1.6rem; letter-spacing:1px; color:#faf8f8; }
   .logo-sub{ font-size:.6rem; letter-spacing:2px; color:#777; display:block; margin-top:-4px; }
   .nav-link-custom{ font-weight:600; font-size:.85rem; color:#222 !important; margin:0 12px; letter-spacing:.3px; }
   .nav-link-custom.active{ color:var(--red) !important; border-bottom:2px solid var(--red); padding-bottom:4px; }
