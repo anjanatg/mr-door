@@ -33,6 +33,8 @@ a{ text-decoration:none; }
   padding:14px 0;
   background:#fff;
 }
+.logo {display: flex;align-items: center;}
+.navbar-logo { width: 150px; height: auto; display: block;}
 .logo-box{
   background:var(--red);
   color:#fff;
