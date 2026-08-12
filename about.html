@@ -16,7 +16,6 @@
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Poppins:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="assets/css/about.css" />
   </head>
   <body>
@@ -51,6 +50,9 @@
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navMenu"
+          aria-controls="navMenu"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
         >
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -94,9 +96,9 @@
     <!-- Page hero -->
     <section class="page-hero">
       <div class="container">
-        <div class="eyebrow">ABOUT MRDOOR</div>
-        <h1 class="mt-2">Strength. Style. Security.</h1>
-        <div class="breadcrumb-custom mt-2">
+        <div class="eyebrow hero-anim" style="--d:.05s">ABOUT MRDOOR</div>
+        <h1 class="mt-2 hero-anim" style="--d:.18s">Strength. Style. Security.</h1>
+        <div class="breadcrumb-custom mt-2 hero-anim" style="--d:.32s">
           <a href="index.html">Home</a> / <span>About Us</span>
         </div>
       </div>
@@ -107,18 +109,18 @@
       <div class="container">
         <div class="row align-items-center g-5">
           <div class="col-lg-5">
-            <div class="story-img-wrap">
+            <div class="story-img-wrap reveal-scale">
               <img
                 src="https://images.unsplash.com/photo-1600566752229-250ed79470f8?q=80&w=800&auto=format&fit=crop"
                 alt="MrDoor craftsmanship"
               />
               <div class="story-badge">
-                <span class="num">20+</span>
+                <span class="num" data-count="20" data-suffix="+">0</span>
                 <span class="lbl">YEARS OF<br />EXCELLENCE</span>
               </div>
             </div>
           </div>
-          <div class="col-lg-7 ps-lg-5">
+          <div class="col-lg-7 ps-lg-5 reveal">
             <div class="section-eyebrow">OUR STORY</div>
             <div class="section-title mt-2">
               Building Trust, One Entrance at a Time
@@ -155,7 +157,7 @@
         </div>
         <div class="row g-4">
           <div class="col-md-4">
-            <div class="value-card">
+            <div class="value-card reveal">
               <div class="value-icon"><i class="bi bi-bullseye"></i></div>
               <h5>Our Mission</h5>
               <p>
@@ -166,7 +168,7 @@
             </div>
           </div>
           <div class="col-md-4">
-            <div class="value-card">
+            <div class="value-card reveal">
               <div class="value-icon"><i class="bi bi-eye"></i></div>
               <h5>Our Vision</h5>
               <p>
@@ -176,7 +178,7 @@
             </div>
           </div>
           <div class="col-md-4">
-            <div class="value-card">
+            <div class="value-card reveal">
               <div class="value-icon"><i class="bi bi-gem"></i></div>
               <h5>Our Values</h5>
               <p>
@@ -197,24 +199,24 @@
           <div class="section-title mt-2">What Sets Us Apart</div>
         </div>
         <div class="row g-4">
-          <div class="col-6 col-lg-3 text-center">
+          <div class="col-6 col-lg-3 text-center reveal">
             <div class="value-icon mx-auto"><i class="bi bi-award"></i></div>
             <h6 class="fw-bold mt-3">20+ Years Experience</h6>
             <p class="text-muted small">Two decades of proven craftsmanship.</p>
           </div>
-          <div class="col-6 col-lg-3 text-center">
+          <div class="col-6 col-lg-3 text-center reveal">
             <div class="value-icon mx-auto">
               <i class="bi bi-shield-check"></i>
             </div>
             <h6 class="fw-bold mt-3">Rust &amp; Weather Proof</h6>
             <p class="text-muted small">Engineered to withstand any climate.</p>
           </div>
-          <div class="col-6 col-lg-3 text-center">
+          <div class="col-6 col-lg-3 text-center reveal">
             <div class="value-icon mx-auto"><i class="bi bi-rulers"></i></div>
             <h6 class="fw-bold mt-3">Custom Sizes</h6>
             <p class="text-muted small">Made to fit your exact space.</p>
           </div>
-          <div class="col-6 col-lg-3 text-center">
+          <div class="col-6 col-lg-3 text-center reveal">
             <div class="value-icon mx-auto"><i class="bi bi-headset"></i></div>
             <h6 class="fw-bold mt-3">After-Sales Support</h6>
             <p class="text-muted small">
@@ -230,26 +232,26 @@
       <div class="container">
         <div class="row g-4">
           <div class="col-6 col-lg-3">
-            <div class="stat-item2">
-              <div class="num">5000+</div>
+            <div class="stat-item2 reveal">
+              <div class="num" data-count="5000" data-suffix="+">0</div>
               <div class="lbl">Projects Completed</div>
             </div>
           </div>
           <div class="col-6 col-lg-3">
-            <div class="stat-item2">
-              <div class="num">1000+</div>
+            <div class="stat-item2 reveal">
+              <div class="num" data-count="1000" data-suffix="+">0</div>
               <div class="lbl">Dealer Network</div>
             </div>
           </div>
           <div class="col-6 col-lg-3">
-            <div class="stat-item2">
-              <div class="num">28</div>
+            <div class="stat-item2 reveal">
+              <div class="num" data-count="28">0</div>
               <div class="lbl">States Covered</div>
             </div>
           </div>
           <div class="col-6 col-lg-3">
-            <div class="stat-item2">
-              <div class="num">100%</div>
+            <div class="stat-item2 reveal">
+              <div class="num" data-count="100" data-suffix="%">0</div>
               <div class="lbl">Customer Satisfaction</div>
             </div>
           </div>
@@ -261,7 +263,7 @@
     <section class="py-5">
       <div class="container py-4">
         <div class="row g-5">
-          <div class="col-lg-4">
+          <div class="col-lg-4 reveal">
             <div class="section-eyebrow">OUR JOURNEY</div>
             <div class="section-title mt-2">Milestones That Shaped Us</div>
             <p class="text-muted mt-3" style="font-size: 0.9rem">
@@ -271,7 +273,7 @@
           </div>
           <div class="col-lg-8">
             <div class="timeline">
-              <div class="timeline-item">
+              <div class="timeline-item reveal">
                 <div class="timeline-dot"></div>
                 <div class="timeline-year">2004</div>
                 <h6>MrDoor Founded</h6>
@@ -280,7 +282,7 @@
                   doors.
                 </p>
               </div>
-              <div class="timeline-item">
+              <div class="timeline-item reveal">
                 <div class="timeline-dot"></div>
                 <div class="timeline-year">2012</div>
                 <h6>Expanded Product Range</h6>
@@ -289,7 +291,7 @@
                   growing demand.
                 </p>
               </div>
-              <div class="timeline-item">
+              <div class="timeline-item reveal">
                 <div class="timeline-dot"></div>
                 <div class="timeline-year">2018</div>
                 <h6>Pan-India Dealer Network</h6>
@@ -298,7 +300,7 @@
                   name.
                 </p>
               </div>
-              <div class="timeline-item">
+              <div class="timeline-item reveal">
                 <div class="timeline-dot"></div>
                 <div class="timeline-year">2024</div>
                 <h6>5000+ Projects Delivered</h6>
@@ -329,7 +331,7 @@
         </div>
         <div class="row g-4">
           <div class="col-md-4">
-            <div class="testimonial-card">
+            <div class="testimonial-card reveal">
               <i class="bi bi-quote"></i>
               <p>
                 MrDoor products are exceptional in quality and finish. Our go-to
@@ -353,7 +355,7 @@
             </div>
           </div>
           <div class="col-md-4">
-            <div class="testimonial-card">
+            <div class="testimonial-card reveal">
               <i class="bi bi-quote"></i>
               <p>
                 Durable, stylish and reliable. MrDoor doors elevate the value of
@@ -377,7 +379,7 @@
             </div>
           </div>
           <div class="col-md-4">
-            <div class="testimonial-card">
+            <div class="testimonial-card reveal">
               <i class="bi bi-quote"></i>
               <p>
                 Excellent service and timely support. Highly recommended for all
@@ -408,7 +410,7 @@
     <section class="cta-banner">
       <div class="container">
         <div class="row align-items-center g-4">
-          <div class="col-lg-8">
+          <div class="col-lg-8 reveal">
             <div class="section-eyebrow">JOIN THE MRDOOR FAMILY</div>
             <h3 class="mt-2">Ready to build better entrances with us?</h3>
             <p class="mb-0">
@@ -416,7 +418,7 @@
               project.
             </p>
           </div>
-          <div class="col-lg-4 text-lg-end">
+          <div class="col-lg-4 text-lg-end reveal">
             <a href="contact.html" class="btn btn-explore"
               >CONTACT US TODAY <i class="bi bi-arrow-right"></i
             ></a>
@@ -540,5 +542,76 @@
         </div>
       </div>
     </footer>
+
+    <!-- Bootstrap JS bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const reduceMotion = window.matchMedia(
+          "(prefers-reduced-motion: reduce)"
+        ).matches;
+
+        // ---- Scroll reveal (story, cards, stats, timeline, testimonials, CTA) ----
+        const revealEls = document.querySelectorAll(".reveal, .reveal-scale");
+        if (reduceMotion) {
+          revealEls.forEach((el) => el.classList.add("in-view"));
+        } else {
+          const revealObserver = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                  entry.target.classList.add("in-view");
+                  revealObserver.unobserve(entry.target);
+                }
+              });
+            },
+            { threshold: 0.15 }
+          );
+          revealEls.forEach((el) => revealObserver.observe(el));
+        }
+
+        // ---- Animated number counters (stats strip + story badge) ----
+        const counters = document.querySelectorAll(".num[data-count]");
+        function animateCounter(el) {
+          const target = parseInt(el.dataset.count, 10) || 0;
+          const suffix = el.dataset.suffix || "";
+          if (reduceMotion) {
+            el.textContent = target + suffix;
+            return;
+          }
+          const duration = 1100;
+          const start = performance.now();
+          function tick(now) {
+            const progress = Math.min((now - start) / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            el.textContent = Math.floor(eased * target) + suffix;
+            if (progress < 1) requestAnimationFrame(tick);
+            else el.textContent = target + suffix;
+          }
+          requestAnimationFrame(tick);
+        }
+        const counterObserver = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                animateCounter(entry.target);
+                counterObserver.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.6 }
+        );
+        counters.forEach((el) => counterObserver.observe(el));
+
+        // ---- Navbar shadow on scroll ----
+        const nav = document.querySelector(".navbar-custom");
+        const onScroll = () => {
+          nav.classList.toggle("scrolled", window.scrollY > 20);
+        };
+        onScroll();
+        window.addEventListener("scroll", onScroll, { passive: true });
+      });
+    </script>
   </body>
 </html>

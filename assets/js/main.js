@@ -51,7 +51,8 @@ async function loadAllPartials() {
 function startPageFeatures() {
   setupCarousels();
   setupContactForm();
-  setupReadMoreToggle(); 
+  setupReadMoreToggle();
+  setupScrollAnimations(); 
 }
 
 
@@ -127,3 +128,57 @@ function setupReadMoreToggle() {
 
 // Once the page's basic HTML has loaded, run this function
 document.addEventListener('DOMContentLoaded', loadAllPartials);
+
+/* ---------- Scroll-reveal + animated counters ---------- */
+
+function setupScrollAnimations() {
+
+  // 1. Fade elements up into view as you scroll to them
+  var revealItems = document.querySelectorAll(".reveal");
+
+  var revealObserver = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("in-view");
+        revealObserver.unobserve(entry.target); // only animate once
+      }
+    });
+  }, { threshold: 0.15 });
+
+  revealItems.forEach(function (item) {
+    revealObserver.observe(item);
+  });
+
+
+  // 2. Count numbers up (e.g. "0" -> "5000+") when they scroll into view
+  var counterItems = document.querySelectorAll(".stat-num");
+
+  function startCounting(el) {
+    var target = parseInt(el.dataset.count, 10) || 0;
+    var suffix = el.dataset.suffix || "";
+    var current = 0;
+    var step = Math.max(1, Math.round(target / 60)); // ~60 small jumps
+
+    var timer = setInterval(function () {
+      current += step;
+      if (current >= target) {
+        current = target;
+        clearInterval(timer);
+      }
+      el.textContent = current + suffix;
+    }, 20);
+  }
+
+  var counterObserver = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        startCounting(entry.target);
+        counterObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.6 });
+
+  counterItems.forEach(function (el) {
+    counterObserver.observe(el);
+  });
+}
