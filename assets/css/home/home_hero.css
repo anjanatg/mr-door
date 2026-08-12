@@ -1,0 +1,82 @@
+/* home_hero.css — hero section (home_hero.html) */
+.hero{
+  position:relative;
+  min-height:520px;
+  background:linear-gradient(90deg, rgba(10,10,10,.92) 25%, rgba(10,10,10,.35) 60%, rgba(10,10,10,.15) 100%),
+    url('https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat;
+  display:flex;
+  align-items:center;
+  padding-left:50px;
+}
+.hero .eyebrow{ color:var(--red); font-weight:700; letter-spacing:2px; font-size:.78rem; }
+.hero h1{ color:#fff; font-weight:700; font-size:3rem; line-height:1.15; }
+.hero h1 span{ color:var(--red); }
+.hero p{ color:#d8d8d8; max-width:420px; margin-top:18px; }
+.hero-divider{
+  width:60px;height:3px;background:var(--red);margin:16px 0;
+}
+.btn-explore{
+  background:var(--red);
+  color:#fff;
+  font-weight:600;
+  font-size:.85rem;
+  padding:12px 22px;
+  border:none;
+}
+.btn-explore:hover{ background:#a91717; color:#fff; }
+
+.btn-catalogue{
+  background:transparent;
+  border:1px solid #fff;
+  color:#fff;
+  font-weight:600;
+  font-size:.85rem;
+  padding:12px 22px;
+}
+.btn-catalogue:hover{ background:#fff; color:#111; }
+
+@media (max-width:991px){
+  .hero{ padding-left:24px; }
+  .hero h1{ font-size:2.1rem; }
+}
+
+/* =========================================================
+   Animations
+   ========================================================= */
+
+@keyframes fadeUp{
+  from{ opacity:0; transform:translateY(24px); }
+  to{ opacity:1; transform:translateY(0); }
+}
+
+/* Hero text: staggered fade-up on page load, delay set per-element via --d */
+.hero-anim{
+  opacity:0;
+  animation:fadeUp .7s ease forwards;
+  animation-delay:var(--d, 0s);
+}
+
+/* Scroll-triggered reveal for the feature-strip icons below the hero */
+.reveal{
+  opacity:0;
+  transform:translateY(24px);
+  transition:opacity .6s ease, transform .6s ease;
+}
+.reveal.in-view{ opacity:1; transform:translateY(0); }
+
+/* Stagger the 6 feature icons left-to-right */
+.feature-strip .col-6:nth-child(1) .reveal{ transition-delay:.05s; }
+.feature-strip .col-6:nth-child(2) .reveal{ transition-delay:.11s; }
+.feature-strip .col-6:nth-child(3) .reveal{ transition-delay:.17s; }
+.feature-strip .col-6:nth-child(4) .reveal{ transition-delay:.23s; }
+.feature-strip .col-6:nth-child(5) .reveal{ transition-delay:.29s; }
+.feature-strip .col-6:nth-child(6) .reveal{ transition-delay:.35s; }
+
+@media (prefers-reduced-motion: reduce){
+  .hero-anim, .reveal{
+    animation:none !important;
+    transition:none !important;
+    opacity:1 !important;
+    transform:none !important;
+  }
+}
