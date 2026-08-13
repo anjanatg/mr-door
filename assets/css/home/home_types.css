@@ -1,0 +1,49 @@
+/* home_products.css — product category grid (home_products.html) */
+.products-section{
+  background:white;
+  padding:60px 30px;
+}
+.product-card{
+  background:#f7f7f5;
+  display:flex;
+  align-items:center;
+  gap:16px;
+  padding:22px 18px;
+  border-right:1px solid #e5e3df;
+  height:100%;
+}
+.product-card img{ width:70px;height:90px;object-fit:cover; }
+.product-card h5{ font-weight:700; margin-bottom:6px; font-size:1.05rem; }
+.product-card a{ color:var(--red); font-weight:600; font-size:.8rem; }
+
+@media (max-width:991px){
+  .product-card{ border-right:none; border-bottom:1px solid #e5e3df; }
+}
+
+/* =========================================================
+   Animations
+   ========================================================= */
+
+.reveal{
+  opacity:0;
+  transform:translateY(24px);
+  transition:opacity .6s ease, transform .6s ease;
+}
+.reveal.in-view{ opacity:1; transform:translateY(0); }
+
+/* Stagger the 6 product cards, 3 columns wide on desktop */
+.product-card.reveal:nth-of-type(1),
+.col-6:nth-child(6n+1) .product-card.reveal{ transition-delay:.05s; }
+.col-6:nth-child(6n+2) .product-card.reveal{ transition-delay:.12s; }
+.col-6:nth-child(6n+3) .product-card.reveal{ transition-delay:.19s; }
+.col-6:nth-child(6n+4) .product-card.reveal{ transition-delay:.26s; }
+.col-6:nth-child(6n+5) .product-card.reveal{ transition-delay:.33s; }
+.col-6:nth-child(6n+6) .product-card.reveal{ transition-delay:.40s; }
+
+@media (prefers-reduced-motion: reduce){
+  .reveal{
+    transition:none !important;
+    opacity:1 !important;
+    transform:none !important;
+  }
+}
