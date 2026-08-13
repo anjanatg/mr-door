@@ -1,0 +1,91 @@
+/* home_gallery.css — projects/gallery preview strip (home_gallery.html) */
+
+.gp-thumb-link{ display:block; color:inherit; }
+.gp-thumb{ height:130px; object-fit:cover; width:100%; }
+.gp-cap{ font-size:.78rem; font-weight:600; margin-top:8px; color:#1a1a1a; }
+.gp-cap small{ display:block; color:#999; font-weight:400; }
+/* Blog */
+.mrd-blog{
+  background:var(--lightbg);
+  padding:60px 0;
+}
+.mrd-blog-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-end;
+  flex-wrap:wrap;
+  gap:16px;
+}
+.mrd-blog-eyebrow{
+  color:var(--red);
+  font-weight:700;
+  letter-spacing:1.5px;
+  font-size:.72rem;
+}
+.mrd-blog-title{
+  font-weight:700;
+  font-size:1.75rem;
+  margin-top:8px;
+}
+.mrd-blog-viewall{
+  color:#111;
+  font-weight:600;
+  font-size:.8rem;
+}
+.mrd-blog-viewall:hover{ color:var(--red); }
+.mrd-blog-card{
+  background:#fff;
+  height:100%;
+}
+.mrd-blog-thumb{
+  width:100%;
+  height:190px;
+  object-fit:cover;
+}
+.mrd-blog-body{
+  padding:18px 4px;
+}
+.mrd-blog-date{
+  font-size:.72rem;
+  color:#999;
+  letter-spacing:.5px;
+}
+.mrd-blog-title-sm{
+  font-weight:700;
+  font-size:1.05rem;
+  margin:8px 0 12px;
+  line-height:1.4;
+}
+.mrd-blog-readmore{
+  color:var(--red);
+  font-weight:600;
+  font-size:.78rem;
+}
+
+/* =========================================================
+   Animations
+   ========================================================= */
+
+.reveal{
+  opacity:0;
+  transform:translateY(24px);
+  transition:opacity .6s ease, transform .6s ease;
+}
+.reveal.in-view{ opacity:1; transform:translateY(0); }
+
+/* Small extra polish: blog/gallery thumbnails zoom slightly on hover */
+.mrd-blog-thumb{ transition:transform .3s ease; }
+.mrd-blog-card:hover .mrd-blog-thumb{ transform:scale(1.05); }
+
+/* Stagger the 3 blog/gallery preview cards left-to-right */
+.mrd-blog .col-md-4:nth-child(1) .reveal{ transition-delay:.05s; }
+.mrd-blog .col-md-4:nth-child(2) .reveal{ transition-delay:.15s; }
+.mrd-blog .col-md-4:nth-child(3) .reveal{ transition-delay:.25s; }
+
+@media (prefers-reduced-motion: reduce){
+  .reveal{
+    transition:none !important;
+    opacity:1 !important;
+    transform:none !important;
+  }
+}

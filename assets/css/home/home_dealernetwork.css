@@ -1,0 +1,57 @@
+/* home_contact.css — dealer network + contact CTA (home_contact.html) */
+.mrd-network{ background:var(--dark); color:#eaeaea; padding:60px 0; }
+.mrd-network-eyebrow{ color:var(--red); font-weight:700; letter-spacing:1.5px; font-size:.72rem; }
+.mrd-network-title{ color:#fff; font-weight:700; font-size:2rem; line-height:1.25; margin-top:8px; }
+.mrd-network-copy{ color:#a9a9a9; font-size:.9rem; max-width:380px; margin-top:14px; }
+.mrd-network-btn-primary{
+  background:var(--red); color:#fff; font-weight:600; font-size:.8rem; padding:11px 20px; border:none;
+}
+.mrd-network-btn-primary:hover{ background:#a91717; color:#fff; }
+.mrd-network-btn-outline{
+  background:transparent; border:1px solid #555; color:#fff; font-weight:600; font-size:.8rem; padding:11px 20px;
+}
+.mrd-network-btn-outline:hover{ background:#fff; color:#111; }
+.mrd-network-map{ width:100%; max-width:600px; height:auto; display:block; margin:0 auto; filter:brightness(.9); }
+.mrd-network-stats{ display:flex; flex-direction:column; gap:26px; }
+.mrd-network-stat{ display:flex; align-items:center; gap:14px; }
+.mrd-network-stat-icon{
+  width:44px;height:44px; border:1px solid #444; border-radius:50%;
+  display:flex;align-items:center;justify-content:center; font-size:1.2rem; color:#fff;
+}
+.mrd-network-stat-num{ font-weight:800; font-size:1.35rem; color:#fff; }
+.mrd-network-stat-label{ font-size:.75rem; color:#999; }
+
+.mrd-contact-cta{
+  background:linear-gradient(90deg, rgba(10,10,10,.92) 40%, rgba(10,10,10,.55) 100%),
+    url('https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=1400&auto=format&fit=crop') center/cover no-repeat;
+  padding:60px 0;
+  color:#fff;
+}
+.mrd-contact-cta h3{ font-weight:700; font-size:1.7rem; }
+.mrd-contact-cta p{ color:#d8d8d8; }
+
+/* =========================================================
+   Animations
+   ========================================================= */
+
+.reveal{
+  opacity:0;
+  transform:translateY(24px);
+  transition:opacity .6s ease, transform .6s ease;
+}
+.reveal.in-view{ opacity:1; transform:translateY(0); }
+
+/* Text column, map, then the 3 stat rows come in one after another */
+.mrd-network .col-lg-4.reveal{ transition-delay:0s; }
+.mrd-network .col-lg-5.reveal{ transition-delay:.15s; }
+.mrd-network-stat.reveal:nth-of-type(1){ transition-delay:.3s; }
+.mrd-network-stat.reveal:nth-of-type(2){ transition-delay:.4s; }
+.mrd-network-stat.reveal:nth-of-type(3){ transition-delay:.5s; }
+
+@media (prefers-reduced-motion: reduce){
+  .reveal{
+    transition:none !important;
+    opacity:1 !important;
+    transform:none !important;
+  }
+}
