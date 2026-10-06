@@ -16,18 +16,19 @@
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Poppins:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    <!-- Shared styles first, page styles after so page rules can override -->
+    <link rel="stylesheet" href="assets/css/home/style.css" />
     <link rel="stylesheet" href="assets/css/products.css" />
   </head>
   <body>
+    <!-- ============ HEADER (same as home_header.html) ============ -->
     <!-- Top bar -->
     <div class="topbar">
-      <div
-        class="container-fluid d-flex justify-content-between align-items-center"
-      >
+      <div class="container-fluid d-flex justify-content-between align-items-center">
         <span>Premium Doors &amp; Windows Solutions</span>
         <div class="d-none d-md-flex align-items-center gap-4">
-          <a href="#"><i class="bi bi-person-circle me-1"></i>Login</a>
-          <a href="#" class="btn-dealer">Become a Dealer</a>
+          <a href="login.html"><i class="bi bi-person-circle me-1"></i>Login</a>
+          <a href="signup.html" class="btn-dealer">Become a Dealer</a>
         </div>
       </div>
     </div>
@@ -36,15 +37,13 @@
     <nav class="navbar navbar-expand-lg navbar-custom">
       <div class="container-fluid px-5">
         <!-- Logo -->
-    <a class="navbar-brand d-flex align-items-center" href="index.html">
-      <span class="logo">
-        <img
-          src="assets/images/logo.webp"
-          alt="MrDoor Logo"
-          class="navbar-logo"
-        />
-      </span>
-    </a>
+        <a class="navbar-brand d-flex align-items-center" href="index.html">
+          <span class="logo">
+            <img src="assets/images/logo.webp" alt="MrDoor Logo" class="navbar-logo" />
+          </span>
+        </a>
+
+        <!-- Mobile Menu Button -->
         <button
           class="navbar-toggler"
           type="button"
@@ -56,6 +55,8 @@
         >
           <span class="navbar-toggler-icon"></span>
         </button>
+
+        <!-- Navigation -->
         <div class="collapse navbar-collapse" id="navMenu">
           <ul class="navbar-nav mx-auto my-3 my-lg-0 align-items-lg-center">
             <li class="nav-item">
@@ -65,22 +66,18 @@
               <a class="nav-link nav-link-custom" href="about.html">ABOUT US</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link nav-link-custom active" href="products.html"
-                >PRODUCTS</a
-              >
+              <a class="nav-link nav-link-custom active" href="products.html">PRODUCTS</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link nav-link-custom " href="gallery.html"
-                >GALLERY</a
-              >
+              <a class="nav-link nav-link-custom" href="gallery.html">GALLERY</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link nav-link-custom" href="contact.html"
-                >CONTACT US</a
-              >
+              <a class="nav-link nav-link-custom" href="contact.html">CONTACT US</a>
             </li>
           </ul>
         </div>
+
+        <!-- Phone -->
         <div class="phone-block d-none d-lg-flex">
           <div class="phone-icon"><i class="bi bi-telephone-fill"></i></div>
           <div>
@@ -105,9 +102,7 @@
     <!-- Filter strip -->
     <div class="filter-strip">
       <div class="container text-center">
-        <button class="filter-pill active" data-filter="all">
-          All Products
-        </button>
+        <button class="filter-pill active" data-filter="all">All Products</button>
         <button class="filter-pill" data-filter="gi">GI Doors</button>
       </div>
     </div>
@@ -119,7 +114,7 @@
           <div class="col-md-6 col-lg-4 prod-item reveal" data-cat="gi" id="gi-doors">
             <div class="prod-card">
               <div class="prod-img-wrap">
-                <img src="assets/images/SolidWoodDoor.webp" alt="GI Doors" />
+                <img src="assets/images/SolidWoodDoor.jpg" alt="GI Doors" />
                 <span class="prod-tag">BESTSELLER</span>
               </div>
               <div class="prod-body">
@@ -129,34 +124,19 @@
                   to resist rust and dents even in harsh outdoor conditions.
                 </p>
                 <ul class="prod-features">
-                  <li>
-                    <i class="bi bi-check-circle-fill"></i>Rust &amp; corrosion
-                    resistant
-                  </li>
-                  <li>
-                    <i class="bi bi-check-circle-fill"></i>Custom sizes
-                    available
-                  </li>
-                  <li>
-                    <i class="bi bi-check-circle-fill"></i>10-year structural
-                    warranty
-                  </li>
+                  <li><i class="bi bi-check-circle-fill"></i>Rust &amp; corrosion resistant</li>
+                  <li><i class="bi bi-check-circle-fill"></i>Custom sizes available</li>
+                  <li><i class="bi bi-check-circle-fill"></i>10-year structural warranty</li>
                 </ul>
                 <div class="prod-footer">
                   <span class="text-muted small">Starting from ₹8,500</span>
-                  <a href="#" class="prod-link"
-                    >ENQUIRE NOW <i class="bi bi-arrow-right"></i
-                  ></a>
+                  <a href="#" class="prod-link">ENQUIRE NOW <i class="bi bi-arrow-right"></i></a>
                 </div>
               </div>
             </div>
           </div>
 
-          <div
-            class="col-md-6 col-lg-4 prod-item reveal"
-            data-cat="wpc"
-            id="wpc-doors"
-          >
+          <div class="col-md-6 col-lg-4 prod-item reveal" data-cat="wpc" id="wpc-doors">
             <div class="prod-card">
               <div class="prod-img-wrap">
                 <img
@@ -171,39 +151,22 @@
                   stay unaffected by moisture, termites, or warping.
                 </p>
                 <ul class="prod-features">
-                  <li>
-                    <i class="bi bi-check-circle-fill"></i>100% waterproof &amp;
-                    termite-proof
-                  </li>
-                  <li>
-                    <i class="bi bi-check-circle-fill"></i>Wood-textured finish
-                  </li>
-                  <li>
-                    <i class="bi bi-check-circle-fill"></i>Ideal for bathrooms
-                    &amp; kitchens
-                  </li>
+                  <li><i class="bi bi-check-circle-fill"></i>100% waterproof &amp; termite-proof</li>
+                  <li><i class="bi bi-check-circle-fill"></i>Wood-textured finish</li>
+                  <li><i class="bi bi-check-circle-fill"></i>Ideal for bathrooms &amp; kitchens</li>
                 </ul>
                 <div class="prod-footer">
                   <span class="text-muted small">Starting from ₹6,200</span>
-                  <a href="#" class="prod-link"
-                    >ENQUIRE NOW <i class="bi bi-arrow-right"></i
-                  ></a>
+                  <a href="#" class="prod-link">ENQUIRE NOW <i class="bi bi-arrow-right"></i></a>
                 </div>
               </div>
             </div>
           </div>
 
-          <div
-            class="col-md-6 col-lg-4 prod-item reveal"
-            data-cat="upvc"
-            id="upvc-windows"
-          >
+          <div class="col-md-6 col-lg-4 prod-item reveal" data-cat="upvc" id="upvc-windows">
             <div class="prod-card">
               <div class="prod-img-wrap">
-                <img
-                  src="assets/images/product1.jpg"
-                  alt="uPVC Windows"
-                />
+                <img src="assets/images/product1.jpg" alt="uPVC Windows" />
                 <span class="prod-tag">ENERGY EFFICIENT</span>
               </div>
               <div class="prod-body">
@@ -213,36 +176,22 @@
                   while improving insulation year-round.
                 </p>
                 <ul class="prod-features">
-                  <li>
-                    <i class="bi bi-check-circle-fill"></i>Sound &amp; dust
-                    insulation
-                  </li>
-                  <li>
-                    <i class="bi bi-check-circle-fill"></i>UV &amp; weather
-                    resistant
-                  </li>
-                  <li>
-                    <i class="bi bi-check-circle-fill"></i>Sliding &amp;
-                    casement styles
-                  </li>
+                  <li><i class="bi bi-check-circle-fill"></i>Sound &amp; dust insulation</li>
+                  <li><i class="bi bi-check-circle-fill"></i>UV &amp; weather resistant</li>
+                  <li><i class="bi bi-check-circle-fill"></i>Sliding &amp; casement styles</li>
                 </ul>
                 <div class="prod-footer">
                   <span class="text-muted small">Starting from ₹450/sqft</span>
-                  <a href="#" class="prod-link"
-                    >ENQUIRE NOW <i class="bi bi-arrow-right"></i
-                  ></a>
+                  <a href="#" class="prod-link">ENQUIRE NOW <i class="bi bi-arrow-right"></i></a>
                 </div>
               </div>
             </div>
           </div>
 
-          <div class="col-md-6 col-lg-4 prod-item reveal" data-cat="fibre">
+          <div class="col-md-6 col-lg-4 prod-item reveal" data-cat="fibre" id="fibre-doors">
             <div class="prod-card">
               <div class="prod-img-wrap">
-                <img
-                  src="assets/images/product2.jpg"
-                  alt="Fibre Doors"
-                />
+                <img src="assets/images/product2.jpg" alt="Fibre Doors" />
               </div>
               <div class="prod-body">
                 <h5>Fibre Doors</h5>
@@ -251,36 +200,22 @@
                   paint-ready finish suited to modern interiors.
                 </p>
                 <ul class="prod-features">
-                  <li>
-                    <i class="bi bi-check-circle-fill"></i>Lightweight &amp;
-                    easy to install
-                  </li>
-                  <li>
-                    <i class="bi bi-check-circle-fill"></i>Moisture &amp; warp
-                    resistant
-                  </li>
-                  <li>
-                    <i class="bi bi-check-circle-fill"></i>Wide design &amp;
-                    colour range
-                  </li>
+                  <li><i class="bi bi-check-circle-fill"></i>Lightweight &amp; easy to install</li>
+                  <li><i class="bi bi-check-circle-fill"></i>Moisture &amp; warp resistant</li>
+                  <li><i class="bi bi-check-circle-fill"></i>Wide design &amp; colour range</li>
                 </ul>
                 <div class="prod-footer">
                   <span class="text-muted small">Starting from ₹5,800</span>
-                  <a href="#" class="prod-link"
-                    >ENQUIRE NOW <i class="bi bi-arrow-right"></i
-                  ></a>
+                  <a href="#" class="prod-link">ENQUIRE NOW <i class="bi bi-arrow-right"></i></a>
                 </div>
               </div>
             </div>
           </div>
 
-          <div class="col-md-6 col-lg-4 prod-item reveal" data-cat="steel">
+          <div class="col-md-6 col-lg-4 prod-item reveal" data-cat="steel" id="steel-doors">
             <div class="prod-card">
               <div class="prod-img-wrap">
-                <img
-                  src="assets/images/product3.jpg"
-                  alt="Steel Doors"
-                />
+                <img src="assets/images/product3.jpg" alt="Steel Doors" />
                 <span class="prod-tag">HIGH SECURITY</span>
               </div>
               <div class="prod-body">
@@ -290,29 +225,19 @@
                   commercial spaces where security is non-negotiable.
                 </p>
                 <ul class="prod-features">
-                  <li>
-                    <i class="bi bi-check-circle-fill"></i>Multi-point locking
-                    compatible
-                  </li>
-                  <li>
-                    <i class="bi bi-check-circle-fill"></i>Fire &amp; impact
-                    resistant
-                  </li>
-                  <li>
-                    <i class="bi bi-check-circle-fill"></i>Powder-coated finish
-                  </li>
+                  <li><i class="bi bi-check-circle-fill"></i>Multi-point locking compatible</li>
+                  <li><i class="bi bi-check-circle-fill"></i>Fire &amp; impact resistant</li>
+                  <li><i class="bi bi-check-circle-fill"></i>Powder-coated finish</li>
                 </ul>
                 <div class="prod-footer">
                   <span class="text-muted small">Starting from ₹11,000</span>
-                  <a href="#" class="prod-link"
-                    >ENQUIRE NOW <i class="bi bi-arrow-right"></i
-                  ></a>
+                  <a href="#" class="prod-link">ENQUIRE NOW <i class="bi bi-arrow-right"></i></a>
                 </div>
               </div>
             </div>
           </div>
 
-          <div class="col-md-6 col-lg-4 prod-item reveal" data-cat="interior">
+          <div class="col-md-6 col-lg-4 prod-item reveal" data-cat="interior" id="interior-doors">
             <div class="prod-card">
               <div class="prod-img-wrap">
                 <img
@@ -327,27 +252,19 @@
                   interior style, from minimal to classic.
                 </p>
                 <ul class="prod-features">
-                  <li>
-                    <i class="bi bi-check-circle-fill"></i>Flush, panel &amp;
-                    louvered styles
-                  </li>
-                  <li>
-                    <i class="bi bi-check-circle-fill"></i>Veneer &amp; laminate
-                    finishes
-                  </li>
-                  <li>
-                    <i class="bi bi-check-circle-fill"></i>Sound-dampening core
-                  </li>
+                  <li><i class="bi bi-check-circle-fill"></i>Flush, panel &amp; louvered styles</li>
+                  <li><i class="bi bi-check-circle-fill"></i>Veneer &amp; laminate finishes</li>
+                  <li><i class="bi bi-check-circle-fill"></i>Sound-dampening core</li>
                 </ul>
                 <div class="prod-footer">
                   <span class="text-muted small">Starting from ₹4,500</span>
-                  <a href="#" class="prod-link"
-                    >ENQUIRE NOW <i class="bi bi-arrow-right"></i
-                  ></a>
+                  <a href="#" class="prod-link">ENQUIRE NOW <i class="bi bi-arrow-right"></i></a>
                 </div>
               </div>
             </div>
           </div>
+        </div>
+        <!-- /#productRow -->
 
         <div class="text-center mt-3 d-none" id="noResults">
           <p class="text-muted">
@@ -355,6 +272,7 @@
           </p>
         </div>
       </div>
+      <!-- /.container -->
     </section>
 
     <!-- Stats -->
@@ -391,7 +309,7 @@
 
     <!-- CTA Banner -->
     <section class="cta-banner">
-      <div class="container">
+      <div class="container-fluid py-5 px-4 px-lg-5">
         <div class="row align-items-center g-4">
           <div class="col-lg-8 reveal">
             <div class="section-eyebrow">NEED HELP CHOOSING?</div>
@@ -401,23 +319,24 @@
             </p>
           </div>
           <div class="col-lg-4 text-lg-end reveal">
-            <a href="#" class="btn btn-explore"
-              >REQUEST A QUOTE <i class="bi bi-arrow-right"></i
-            ></a>
+            <a href="contact.html" class="btn btn-explore">
+              REQUEST A QUOTE <i class="bi bi-arrow-right"></i>
+            </a>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- ============ FOOTER (same as home_footer.html) ============ -->
     <!-- Newsletter -->
     <div class="newsletter-strip">
-      <div class="container">
+      <div class="container-fluid py-5 px-4 px-lg-5">
         <div class="row align-items-center g-3">
           <div class="col-lg-5">
             <h5 class="mb-1">
               Stay Updated With <span style="color: var(--red)">MrDoor</span>
             </h5>
-            <p class="mb-0 text-muted small">
+            <p class="mrd-newsletter-copy">
               Subscribe to our newsletter for latest updates, new products and
               offers.
             </p>
@@ -434,20 +353,13 @@
 
     <!-- Footer -->
     <footer class="footer-main">
-      <div class="container">
+      <div class="container-fluid py-5 px-4 px-lg-5">
         <div class="row g-4">
           <div class="col-lg-3">
-            <a
-              class="navbar-brand d-flex align-items-center gap-2 mb-3"
-              href="index.html"
-            >
+            <a class="navbar-brand d-flex align-items-center gap-2 mb-3" href="index.html">
               <span class="logo">
-            <img
-              src="assets/images/logo.webp"
-              alt="MrDoor Logo"
-              class="navbar-logo"
-            />
-          </span>
+                <img src="assets/images/logo.webp" alt="MrDoor Logo" class="navbar-logo" />
+              </span>
             </a>
             <p>
               Premium doors and windows crafted for strength, style and
@@ -455,13 +367,12 @@
             </p>
             <div class="d-flex gap-2 mt-3">
               <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
-              <a href="#" class="social-icon"
-                ><i class="bi bi-instagram"></i
-              ></a>
+              <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
               <a href="#" class="social-icon"><i class="bi bi-youtube"></i></a>
               <a href="#" class="social-icon"><i class="bi bi-linkedin"></i></a>
             </div>
           </div>
+
           <div class="col-6 col-lg-2">
             <h6>COMPANY</h6>
             <ul>
@@ -471,18 +382,19 @@
               <li><a href="#">News &amp; Events</a></li>
             </ul>
           </div>
+
           <div class="col-6 col-lg-2">
             <h6>PRODUCTS</h6>
             <ul>
-              <li><a href="#gi-doors">GI Doors</a></li>
-              <li><a href="#wpc-doors">WPC Doors</a></li>
-              <li><a href="#upvc-windows">uPVC Windows</a></li>
-              <li><a href="#">Fibre Doors</a></li>
-              <li><a href="#">Steel Doors</a></li>
-              <li><a href="#">Interior Doors</a></li>
-  
+              <li><a href="products.html#gi-doors">GI Doors</a></li>
+              <li><a href="products.html#wpc-doors">WPC Doors</a></li>
+              <li><a href="products.html#upvc-windows">uPVC Windows</a></li>
+              <li><a href="products.html#fibre-doors">Fibre Doors</a></li>
+              <li><a href="products.html#steel-doors">Steel Doors</a></li>
+              <li><a href="products.html#interior-doors">Interior Doors</a></li>
             </ul>
           </div>
+
           <div class="col-6 col-lg-2">
             <h6>SUPPORT</h6>
             <ul>
@@ -491,31 +403,27 @@
               <li><a href="#">FAQ's</a></li>
             </ul>
           </div>
+
           <div class="col-6 col-lg-3">
             <h6>CONTACT US</h6>
             <ul>
               <li><i class="bi bi-telephone me-2 text-danger"></i>+91 9947 400 500</li>
               <li><i class="bi bi-envelope me-2 text-danger"></i>mrdoorpala@gmail.com</li>
               <li>
-                <i class="bi bi-geo-alt me-2 text-danger"></i>R V Centre, Near Kottaramattom
-                Bus Stand, Vaikom Road, Palai, Kottayam, Kerala 686575
+                <i class="bi bi-geo-alt me-2 text-danger"></i>R V Centre, Near
+                Kottaramattom Bus Stand, Vaikom Road, Palai, Kottayam, Kerala 686575
               </li>
             </ul>
           </div>
         </div>
-        <div
-          class="footer-bottom d-flex justify-content-between flex-wrap gap-2"
-        >
+
+        <div class="footer-bottom d-flex justify-content-between flex-wrap gap-2">
           <span>© 2024 MrDoor India. All Rights Reserved.</span>
-          <span
-            ><a href="#" class="text-decoration-none" style="color: #888"
-              >Privacy Policy</a
-            >
+          <span>
+            <a href="#" class="text-decoration-none" style="color: #888">Privacy Policy</a>
             &nbsp;|&nbsp;
-            <a href="#" class="text-decoration-none" style="color: #888"
-              >Terms &amp; Conditions</a
-            ></span
-          >
+            <a href="#" class="text-decoration-none" style="color: #888">Terms &amp; Conditions</a>
+          </span>
         </div>
       </div>
     </footer>
@@ -523,104 +431,7 @@
     <!-- Bootstrap JS bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const reduceMotion = window.matchMedia(
-          "(prefers-reduced-motion: reduce)"
-        ).matches;
-
-        // ---- Scroll reveal (cards, stats, CTA) ----
-        const revealEls = document.querySelectorAll(".reveal");
-        if (reduceMotion) {
-          revealEls.forEach((el) => el.classList.add("in-view"));
-        } else {
-          const revealObserver = new IntersectionObserver(
-            (entries) => {
-              entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                  entry.target.classList.add("in-view");
-                  revealObserver.unobserve(entry.target);
-                }
-              });
-            },
-            { threshold: 0.15 }
-          );
-          revealEls.forEach((el) => revealObserver.observe(el));
-        }
-
-        // ---- Animated stat counters ----
-        const counters = document.querySelectorAll(".stat-item2 .num");
-        function animateCounter(el) {
-          const target = parseInt(el.dataset.count, 10) || 0;
-          const suffix = el.dataset.suffix || "";
-          if (reduceMotion) {
-            el.textContent = target + suffix;
-            return;
-          }
-          const duration = 1100;
-          const start = performance.now();
-          function tick(now) {
-            const progress = Math.min((now - start) / duration, 1);
-            const eased = 1 - Math.pow(1 - progress, 3);
-            el.textContent = Math.floor(eased * target) + suffix;
-            if (progress < 1) requestAnimationFrame(tick);
-            else el.textContent = target + suffix;
-          }
-          requestAnimationFrame(tick);
-        }
-        const counterObserver = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting) {
-                animateCounter(entry.target);
-                counterObserver.unobserve(entry.target);
-              }
-            });
-          },
-          { threshold: 0.6 }
-        );
-        counters.forEach((el) => counterObserver.observe(el));
-
-        // ---- Navbar shadow on scroll ----
-        const nav = document.querySelector(".navbar-custom");
-        const onScroll = () => {
-          nav.classList.toggle("scrolled", window.scrollY > 20);
-        };
-        onScroll();
-        window.addEventListener("scroll", onScroll, { passive: true });
-
-        // ---- Filter pills with fade-out / fade-in transition ----
-        const pills = document.querySelectorAll(".filter-pill");
-        const items = document.querySelectorAll(".prod-item");
-        const noResults = document.getElementById("noResults");
-
-        pills.forEach((pill) => {
-          pill.addEventListener("click", () => {
-            if (pill.classList.contains("active")) return;
-            pills.forEach((p) => p.classList.remove("active"));
-            pill.classList.add("active");
-            const filter = pill.dataset.filter;
-
-            const delay = reduceMotion ? 0 : 220;
-            items.forEach((item) => item.classList.add("filtering-out"));
-
-            setTimeout(() => {
-              let visibleCount = 0;
-              items.forEach((item) => {
-                const show = filter === "all" || item.dataset.cat === filter;
-                item.style.display = show ? "" : "none";
-                if (show) visibleCount++;
-              });
-              requestAnimationFrame(() => {
-                items.forEach((item) =>
-                  item.classList.remove("filtering-out")
-                );
-              });
-              noResults.classList.toggle("d-none", visibleCount !== 0);
-            }, delay);
-          });
-        });
-      });
-    </script>
+    <!-- Page script -->
+    <script src="assets/js/products.js"></script>
   </body>
 </html>
