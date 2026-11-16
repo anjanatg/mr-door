@@ -1,0 +1,131 @@
+
+/* Testimonial */
+.testimonial {
+  padding: 80px 0 60px;
+  background: #f2efe9;
+  text-align: center;
+}
+
+.testimonial-eyebrow {
+  margin: 0 0 22px;
+  color: #a88a4a;
+  font-family: 'Jost', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
+
+/* Testimonial Slides */
+.testimonial-slides {
+  display: grid;
+  max-width: 940px;
+  margin: 0 auto;
+}
+
+.testimonial-slide {
+  grid-area: 1 / 1;
+  margin: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .8s ease, visibility .8s;
+}
+
+.testimonial-slide.is-active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.testimonial-quote {
+  margin: 0 0 24px;
+  color: #1a1a1a;
+  font-family: 'Marcellus', serif;
+  font-size: clamp(22px, 2.5vw, 34px);
+  line-height: 1.45;
+}
+
+.testimonial-name {
+  color: #555;
+  font-family: 'Jost', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+/* Navigation Bars */
+.testimonial-bars {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 44px;
+}
+
+.testimonial-bar {
+  width: 160px;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  text-align: center;
+}
+
+.testimonial-bar-line {
+  display: block;
+  height: 2px;
+  margin: 10px 0;
+  background: #cfcac0;
+  transition: background-color .3s ease;
+}
+
+.testimonial-bar-label {
+  display: block;
+  color: #9a948a;
+  font-family: 'Jost', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: color .3s ease;
+}
+
+.testimonial-bar.is-active .testimonial-bar-line {
+  background: #1a1a1a;
+}
+
+.testimonial-bar.is-active .testimonial-bar-label,
+.testimonial-bar:hover .testimonial-bar-label {
+  color: #1a1a1a;
+}
+
+.testimonial-bar:focus-visible {
+  outline: 2px solid #1a1a1a;
+  outline-offset: 4px;
+}
+
+/* Responsive */
+@media (max-width: 575px) {
+  .testimonial {
+    padding: 50px 0 40px;
+  }
+
+  .testimonial-bars {
+    gap: 10px;
+  }
+
+  .testimonial-bar {
+    width: 30%;
+  }
+
+  .testimonial-bar-label {
+    font-size: 9px;
+    letter-spacing: 1px;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .testimonial-slide {
+    transition: none;
+  }
+}

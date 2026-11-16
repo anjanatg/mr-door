@@ -1,0 +1,120 @@
+
+.about {
+  background: #fff;
+  padding: 90px 0;
+  overflow: hidden;
+}
+
+.about-content {
+  max-width: 760px;
+  padding: 0 clamp(0px, 3vw, 60px);
+  font-family: 'Raleway', sans-serif;
+}
+
+.about-eyebrow {
+  margin: 0 0 14px;
+  font-size: clamp(20px, 1.8vw, 28px);
+  font-weight: 400;
+  color: #5b9a8b;
+}
+
+.about-title {
+  margin: 0 0 34px;
+  font-family: 'Bodoni Moda', serif;
+  font-size: clamp(36px, 4.6vw, 76px);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -1px;
+  color: #111;
+}
+
+.about-text {
+  margin: 0 0 44px;
+  font-size: clamp(16px, 1.25vw, 20px);
+  line-height: 1.5;
+  color: #111;
+}
+
+.about-btn {
+  display: inline-block;
+  padding: 18px 44px;
+  background-color: #5b9a8b;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='60' viewBox='0 0 240 60'%3E%3Cpath d='M-10 40 C40 0 80 70 130 30 S210 10 250 35' fill='none' stroke='%23ffffff' stroke-opacity='.18'/%3E%3Cpath d='M-10 52 C40 12 80 82 130 42 S210 22 250 47' fill='none' stroke='%23ffffff' stroke-opacity='.18'/%3E%3C/svg%3E");
+  background-size: cover;
+  color: #fff;
+  font-size: 18px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.about-btn:hover {
+  background-color: #4a8576;
+  color: #fff;
+}
+
+.about-btn:focus-visible {
+  outline: 2px solid #111;
+  outline-offset: 3px;
+}
+
+.about-image {
+  --far: 40%;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: #f3f1ee;
+  transform: translate(
+    calc(var(--move, 0) * var(--far)),
+    calc(var(--move, 0) * var(--far))
+  );
+  will-change: transform;
+}
+
+.about-image img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+/* Text animation */
+.js-reveal .about-content > * {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.9s ease;
+}
+
+.js-reveal .about-content.is-visible > * {
+  opacity: 1;
+  transform: none;
+}
+
+.about-content > :nth-child(2) { transition-delay: 0.15s; }
+.about-content > :nth-child(3) { transition-delay: 0.3s; }
+.about-content > :nth-child(4) { transition-delay: 0.45s; }
+
+/* Responsive */
+@media (max-width: 991px) {
+  .about {
+    padding: 50px 0;
+  }
+
+  .about-content {
+    max-width: none;
+    padding: 0;
+  }
+
+  .about-title {
+    margin-bottom: 24px;
+  }
+
+  .about-text {
+    margin-bottom: 30px;
+    line-height: 1.8;
+  }
+
+  .about-image {
+    aspect-ratio: 4 / 3;
+    --far: 15%;
+  }
+}

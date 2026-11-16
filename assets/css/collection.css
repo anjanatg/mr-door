@@ -1,0 +1,132 @@
+
+/* Collections */
+.collections {
+  background: #fffefb;
+  padding: 30px 0 60px;
+  margin-top: 10px;
+}
+
+.collections-heading {
+  font-family: 'Bodoni Moda', serif;
+  font-size: 48px;
+  font-weight: 400;
+  margin: 0;
+  color: #111;
+}
+
+.view-all {
+  padding: 50px 0 2px;
+  border-bottom: 1.5px solid #111;
+  color: #111;
+  font-size: 13px;
+  font-weight: 500;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+/* Slider */
+.slider {
+  margin-top: 28px;
+  overflow: hidden;
+  container-type: inline-size;
+  --gap: 28px;
+  --visible: 5;
+}
+
+.slider-track {
+  display: flex;
+  width: max-content;
+  animation: slide var(--duration, 30s) linear infinite;
+  will-change: transform;
+}
+
+.slider:hover .slider-track {
+  animation-play-state: paused;
+}
+
+@keyframes slide {
+  from { transform: translateX(0); }
+  to { transform: translateX(calc(var(--set-width, 1000px) * -1)); }
+}
+
+/* Collection Cards */
+.collection-card {
+  position: relative;
+  display: block;
+  flex: 0 0 auto;
+  width: var(--card-w, calc((100cqw - (var(--visible) - 1) * var(--gap)) / var(--visible)));
+  aspect-ratio: 1;
+  margin-right: var(--gap);
+  overflow: hidden;
+}
+
+.collection-card img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Card Caption */
+.collection-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 6px 19px;
+  background: linear-gradient(to top, rgba(0,0,0,.35), transparent);
+  color: #fff;
+  text-align: center;
+}
+
+.collection-title {
+  font-size: 22px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.collection-sub {
+  font-size: 10px;
+  letter-spacing: 4px;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+  .slider {
+    --visible: 3;
+  }
+}
+
+@media (max-width: 575px) {
+  .slider {
+    --visible: 2;
+    --gap: 14px;
+  }
+
+  .collections-heading {
+    font-size: 30px;
+  }
+
+  .collection-title {
+    font-size: 12px;
+    letter-spacing: 1px;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .slider {
+    overflow-x: auto;
+  }
+
+  .slider-track {
+    animation: none;
+  }
+}
