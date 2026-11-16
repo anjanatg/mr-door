@@ -1,89 +1,51 @@
-// about.js — scroll animations, number counters and navbar shadow for the About page
+$(function () {
+    const $about = $('.about');
+    const $image = $('.about-image');
+    const $content = $('.about-content');
 
-document.addEventListener("DOMContentLoaded", () => {
-  const reduceMotion = window.matchMedia(
-    "(prefers-reduced-motion: reduce)"
-  ).matches;
+    if (!$about.length || !$image.length || !$content.length) return;
 
-  setupScrollReveal(reduceMotion);
-  setupCounters(reduceMotion);
-  setupNavbarShadow();
+    let target = 1;
+    let current = 1;
+
+    // Image movement on scroll
+    function updateTarget() {
+        const screen = $(window).height();
+        const scrolled = screen - $about[0].getBoundingClientRect().top;
+
+        const wait = screen * 0.1;
+        const distance = screen * 0.4;
+
+        let progress = (scrolled - wait) / distance;
+        progress = Math.min(Math.max(progress, 0), 1);
+
+        target = 1 - progress;
+    }
+
+    // Smooth image animation
+    function animate() {
+        current += (target - current) * 0.12;
+
+        if (Math.abs(target - current) < 0.001) {
+            current = target;
+        }
+
+        $image[0].style.setProperty('--move', current);
+
+        requestAnimationFrame(animate);
+    }
+
+    $(window).on('scroll', updateTarget);
+    updateTarget();
+    animate();
+
+    // Text reveal animation
+    const observer = new IntersectionObserver(function (entries) {
+        if (entries[0].isIntersecting) {
+            $content.addClass('is-visible');
+            observer.disconnect();
+        }
+    }, { threshold: 0.3 });
+
+    observer.observe($content[0]);
 });
-
-/* ---------- Scroll reveal (story, cards, stats, timeline, testimonials, CTA) ---------- */
-function setupScrollReveal(reduceMotion) {
-  const revealEls = document.querySelectorAll(".reveal, .reveal-scale");
-
-  if (reduceMotion) {
-    revealEls.forEach((el) => el.classList.add("in-view"));
-    return;
-  }
-
-  const revealObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("in-view");
-          revealObserver.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.15 }
-  );
-
-  revealEls.forEach((el) => revealObserver.observe(el));
-}
-
-/* ---------- Animated number counters (stats strip + story badge) ---------- */
-function setupCounters(reduceMotion) {
-  const counters = document.querySelectorAll(".num[data-count]");
-
-  function animateCounter(el) {
-    const target = parseInt(el.dataset.count, 10) || 0;
-    const suffix = el.dataset.suffix || "";
-
-    if (reduceMotion) {
-      el.textContent = target + suffix;
-      return;
-    }
-
-    const duration = 1100;
-    const start = performance.now();
-
-    function tick(now) {
-      const progress = Math.min((now - start) / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3);
-      el.textContent = Math.floor(eased * target) + suffix;
-      if (progress < 1) requestAnimationFrame(tick);
-      else el.textContent = target + suffix;
-    }
-    requestAnimationFrame(tick);
-  }
-
-  const counterObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          animateCounter(entry.target);
-          counterObserver.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.6 }
-  );
-
-  counters.forEach((el) => counterObserver.observe(el));
-}
-
-/* ---------- Navbar shadow on scroll ---------- */
-function setupNavbarShadow() {
-  const nav = document.querySelector(".navbar-custom");
-  if (!nav) return;
-
-  const onScroll = () => {
-    nav.classList.toggle("scrolled", window.scrollY > 20);
-  };
-
-  onScroll();
-  window.addEventListener("scroll", onScroll, { passive: true });
-}

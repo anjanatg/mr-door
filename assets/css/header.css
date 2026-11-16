@@ -1,0 +1,371 @@
+
+/* Topbar */
+.topbar {
+  background: #1a1a1a;
+  color: #f1ebe0;
+  font-family: 'Manrope', sans-serif;
+  font-size: 12px;
+  letter-spacing: .4px;
+  border-bottom: 2px solid #c9a24d;
+}
+
+.topbar-inner {
+  display: flex;
+  justify-content: center;
+  gap: clamp(20px, 4vw, 56px);
+  padding: 9px 16px;
+}
+
+.topbar-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+.topbar-item i {
+  color: #d7b46a;
+}
+
+/* Header */
+.hdr {
+  top: 0;
+  z-index: 1000;
+  margin-bottom: 10px;
+  padding: 12px clamp(12px, 2vw, 28px) 0;
+  background: transparent;
+  font-family: 'Manrope', sans-serif;
+}
+
+.hdr-inner {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  padding: 10px 14px 10px 20px;
+  border: 1px solid #ece5d6;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .92);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 30px rgba(26, 26, 26, .08);
+  transition: padding .3s ease, box-shadow .3s ease;
+}
+
+.hdr.is-scrolled .hdr-inner {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  box-shadow: 0 12px 36px rgba(26, 26, 26, .14);
+}
+
+/* Navigation */
+.hdr-links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.hdr-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 16px;
+  border-radius: 999px;
+  color: #1a1a1a;
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background-color .25s ease, color .25s ease;
+}
+
+.hdr-links a:hover,
+.hdr-links a.is-active {
+  background: #f5efe3;
+  color: #7a5a28;
+}
+
+/* Dropdown */
+.hdr-drop {
+  position: relative;
+}
+
+.hdr-drop > a i {
+  font-size: 11px;
+  transition: transform .25s ease;
+}
+
+.hdr-drop:hover > a i {
+  transform: rotate(180deg);
+}
+
+.hdr-drop-panel {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 230px;
+  margin-top: 14px;
+  padding: 10px;
+  border: 1px solid #ece5d6;
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0 18px 40px rgba(26, 26, 26, .12);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: opacity .25s ease, transform .25s ease, visibility .25s;
+}
+
+.hdr-drop-panel::before {
+  content: "";
+  position: absolute;
+  top: -16px;
+  left: 0;
+  width: 100%;
+  height: 16px;
+}
+
+.hdr-drop:hover .hdr-drop-panel,
+.hdr-drop:focus-within .hdr-drop-panel {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.hdr-drop-panel a {
+  display: flex;
+  width: 100%;
+  border-radius: 12px;
+}
+
+.hdr-drop-panel small {
+  margin-left: auto;
+  color: #9a8f7a;
+  font-size: 12px;
+}
+
+/* Mobile Toggle */
+.hdr-toggle {
+  display: none;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 14px 8px 4px;
+  border: 0;
+  background: none;
+  color: #1a1a1a;
+  font-family: 'Manrope', sans-serif;
+  font-size: 17px;
+  cursor: pointer;
+  justify-self: start;
+}
+
+.hdr-toggle i {
+  font-size: 22px;
+}
+
+/* Logo */
+.hdr-logo {
+  display: block;
+}
+
+.hdr-logo img {
+  display: block;
+  width: auto;
+  height: 46px;
+  transition: height .3s ease;
+}
+
+.hdr.is-scrolled .hdr-logo img {
+  height: 38px;
+}
+
+/* Header Actions */
+.hdr-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: clamp(10px, 1.4vw, 20px);
+}
+
+.hdr-search {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid #e6dfd0;
+  border-radius: 50%;
+  background: none;
+  color: #1a1a1a;
+  cursor: pointer;
+  transition: background-color .25s ease, color .25s ease;
+}
+
+.hdr-search:hover {
+  background: #1a1a1a;
+  color: #fff;
+}
+
+.hdr-phone {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #1a1a1a;
+  line-height: 1.2;
+  text-decoration: none;
+}
+
+.hdr-phone i {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #f5efe3;
+  color: #7a5a28;
+  font-size: 15px;
+  transition: background-color .25s ease, color .25s ease;
+}
+
+.hdr-phone:hover i {
+  background: #1a1a1a;
+  color: #fff;
+}
+
+.hdr-phone small {
+  display: block;
+  color: #8a8170;
+  font-size: 11px;
+}
+
+.hdr-phone b {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* CTA Button */
+.hdr-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 6px 15px;
+  border-radius: 999px;
+  background: #1a1a1a;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background-color .25s ease;
+}
+
+.hdr-btn i {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #d7b46a;
+  color: #1a1a1a;
+  transition: transform .25s ease;
+}
+
+.hdr-btn:hover {
+  background: #2b2b2b;
+}
+
+.hdr-btn:hover i {
+  transform: rotate(-45deg);
+}
+
+.hdr a:focus-visible,
+.hdr button:focus-visible {
+  outline: 2px solid #1a1a1a;
+  outline-offset: 3px;
+}
+
+/* Mobile Menu */
+.hdr-mobile {
+  display: flex;
+  flex-direction: column;
+  margin-top: 8px;
+  padding: 8px 24px 16px;
+  border: 1px solid #ece5d6;
+  border-radius: 24px;
+  background: #fff;
+  box-shadow: 0 18px 40px rgba(26, 26, 26, .12);
+}
+
+.hdr-mobile[hidden] {
+  display: none;
+}
+
+.hdr-mobile a {
+  padding: 14px 0;
+  border-bottom: 1px solid #f0f0f0;
+  color: #424040;
+  font-size: 17px;
+  text-decoration: none;
+}
+
+.hdr-mobile .hdr-mobile-phone {
+  margin-top: 6px;
+  border-bottom: 0;
+  color: #7a5a28;
+}
+
+/* Responsive */
+@media (max-width: 1199px) {
+  .hdr-phone span {
+    display: none;
+  }
+}
+
+@media (max-width: 991px) {
+  .hdr-links,
+  .hdr-search {
+    display: none;
+  }
+
+  .hdr-toggle {
+    display: inline-flex;
+  }
+}
+
+@media (min-width: 992px) {
+  .hdr-mobile {
+    display: none !important;
+  }
+}
+
+@media (max-width: 575px) {
+  .topbar-item:nth-child(n+2) {
+    display: none;
+  }
+
+  .hdr-inner {
+    padding: 8px 8px 8px 16px;
+  }
+
+  .hdr-logo img {
+    height: 36px;
+  }
+
+  .hdr-phone {
+    display: none;
+  }
+
+  .hdr-btn {
+    padding: 11px 18px;
+  }
+
+  .hdr-btn i {
+    display: none;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .hdr *,
+  .hdr-drop-panel {
+    transition: none !important;
+  }
+}
