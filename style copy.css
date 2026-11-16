@@ -1,0 +1,702 @@
+/* =========================================================
+   HOW THIS FILE WORKS
+   Every section has its OWN block and its OWN class prefix:
+     nav-   hero-   feat-   coll-   val-   bed-   test-   foot-
+   The mobile (@media) rules for a section are inside that
+   section's block too. So when you change one block, the
+   other sections do not change.
+   ========================================================= */
+
+
+/* ---------- Basic (only the page itself) ---------- */
+body {
+  margin: 0;
+  background: #fff;
+  font-family: "Manrope", sans-serif;
+  color: #111;
+}
+
+a {
+  text-decoration: none;
+}
+
+
+/* =========================================================
+   1. NAVBAR  (nav-)
+   ========================================================= */
+.nav-section {
+  padding: 14px 20px 28px;
+  background: #fff;
+}
+
+.nav-menu {
+  color: #111;
+  font-size: 13px;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.nav-menu i {
+  font-size: 22px;
+}
+
+.nav-logo {
+  color: #2b2b2b;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav-logo-text {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 30px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+.nav-btn {
+  background: #111;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 8px 20px;
+  border-radius: 50px;
+}
+
+.nav-btn:hover {
+  background: #333;
+  color: #fff;
+}
+
+@media (max-width: 767px) {
+  .nav-logo-text {
+    font-size: 24px;
+  }
+}
+
+
+/* =========================================================
+   2. HERO BANNER  (hero-)
+   ========================================================= */
+.hero-section {
+  margin: 0 12px;
+  min-height: 700px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  color: #fff;
+
+  /* dark fallback colour + your banner image (images/banner.jpg) */
+  background-color: #0e1118;
+  background-image:
+    linear-gradient(90deg, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0) 60%),
+    url("images/banner.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.hero-content {
+  padding: 40px 38px;
+}
+
+.hero-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 400;
+  padding: 5px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 50px;
+  background: rgba(255, 255, 255, 0.08);
+  margin-bottom: 14px;
+}
+
+.hero-title {
+  font-size: 40px;
+  font-weight: 300;
+  line-height: 1.2;
+  text-transform: uppercase;
+  margin: 0 0 28px;
+}
+
+.hero-btn {
+  background: #fff;
+  color: #111;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 6px 6px 6px 14px;
+  border-radius: 50px;
+  display: inline-flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.hero-btn-circle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #13261f;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+}
+
+@media (max-width: 767px) {
+  .hero-title {
+    font-size: 30px;
+  }
+}
+
+
+/* =========================================================
+   3. FEATURES STRIP  (feat-)
+   ========================================================= */
+.feat-section {
+  padding: 22px 0;
+}
+
+.feat-box {
+  max-width: 1480px;
+  margin: 0 auto;
+  background: #f4ece2;
+  border: 1px solid #e8dfd3;
+  border-radius: 8px;
+  padding: 20px 0;
+}
+
+.feat-item {
+  padding: 8px 15px;
+  font-family: "Poppins", sans-serif;
+  border-right: 1px solid #d9cfc2;
+}
+
+.feat-item:last-child {
+  border-right: none;
+}
+
+.feat-title {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: #2b1a10;
+}
+
+.feat-text {
+  margin: 0;
+  font-size: 13px;
+  color: #8c7d70;
+}
+
+.feat-badge {
+  font-size: 44px;
+  line-height: 1;
+  color: #111;
+}
+
+@media (max-width: 767px) {
+  .feat-item {
+    border-right: none;
+    padding: 14px 10px;
+  }
+}
+
+
+/* =========================================================
+   4. COLLECTIONS  (coll-)
+   Change the card size here only:
+   ========================================================= */
+.coll-section {
+  --coll-card-width: 258px;
+  --coll-card-height: 308px;
+  --coll-gap: 28px;
+
+  padding: 40px 20px 60px;
+}
+
+.coll-inner {
+  max-width: 1520px;
+  margin: 0 auto;
+}
+
+.coll-head {
+  margin-bottom: 16px;
+}
+
+.coll-title {
+  font-family: "Bodoni Moda", serif;
+  font-size: 32px;
+  font-weight: 400;
+  color: #111;
+  margin: 0;
+}
+
+.coll-viewall {
+  color: #111;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid #111;
+  padding-bottom: 2px;
+}
+
+/* the box that hides the cards going outside */
+.coll-slider {
+  overflow: hidden;
+}
+
+/* the row of cards (JS moves this to the left) */
+.coll-track {
+  display: flex;
+  gap: var(--coll-gap);
+  width: max-content;
+}
+
+.coll-card {
+  position: relative;
+  flex: 0 0 var(--coll-card-width);
+  height: var(--coll-card-height);
+  background-color: #cfc3b5;      /* shows until your image loads */
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding-bottom: 6px;
+  color: #fff;
+}
+
+/* soft dark fade at the bottom so the text is readable */
+.coll-card::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 70px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.35), transparent);
+}
+
+.coll-card-name,
+.coll-card-sub {
+  position: relative;            /* keeps text above the fade */
+  text-transform: uppercase;
+}
+
+.coll-card-name {
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: 2px;
+}
+
+.coll-card-sub {
+  font-size: 6px;
+  letter-spacing: 6px;
+  margin-top: 1px;
+}
+
+@media (max-width: 767px) {
+  .coll-section {
+    --coll-card-width: 200px;
+    --coll-card-height: 240px;
+  }
+
+  .coll-title {
+    font-size: 26px;
+  }
+}
+
+
+/* =========================================================
+   5. VALUES  (val-)
+   ========================================================= */
+.val-section {
+  padding: 10px 20px 70px;
+}
+
+.val-inner {
+  max-width: 1320px;
+  margin: 0 auto;
+  font-family: "Red Hat Display", sans-serif;
+}
+
+.val-title {
+  text-align: center;
+  font-size: 28px;
+  font-weight: 400;
+  color: #3a3a3a;
+  margin: 0 0 6px;
+}
+
+.val-text {
+  text-align: center;
+  font-size: 13px;
+  color: #6f7480;
+  margin: 0 0 22px;
+}
+
+.val-card {
+  position: relative;
+  display: block;
+  aspect-ratio: 312 / 450;
+  background-color: #3b2f26;      /* shows until your image loads */
+  background-size: cover;
+  background-position: center;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+/* dark fade at the bottom so the white text is easy to read */
+.val-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0) 40%);
+}
+
+.val-card-name {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 24px;
+  text-align: center;
+  color: #fff;
+  font-size: 22px;
+  font-weight: 400;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+@media (max-width: 767px) {
+  .val-title {
+    font-size: 22px;
+  }
+
+  .val-text {
+    font-size: 12px;
+  }
+
+  .val-card-name {
+    font-size: 15px;
+    bottom: 16px;
+  }
+}
+
+
+/* =========================================================
+   6. BEDROOM FEATURE  (bed-)
+   ========================================================= */
+.bed-section {
+  padding: 0 20px 70px;
+}
+
+.bed-box {
+  max-width: 1400px;
+  margin: 0 auto;
+  background: #f9f9fa;
+  border-radius: 6px;
+  padding: 22px 40px 22px 22px;
+}
+
+.bed-main {
+  width: 100%;
+  height: 560px;
+  background-color: #d9c3a5;      /* shows until your image loads */
+  background-size: cover;
+  background-position: center;
+  border-radius: 2px;
+}
+
+/* small image box: all slides sit on top of each other */
+.bed-slider {
+  position: relative;
+  width: 72%;
+  aspect-ratio: 1 / 1;
+  margin: 0 auto 22px;
+}
+
+.bed-slide {
+  position: absolute;
+  inset: 0;
+  background-color: #c9b49b;
+  background-size: cover;
+  background-position: center;
+  border-radius: 4px;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+
+.bed-slide.active {
+  opacity: 1;
+}
+
+.bed-title {
+  font-family: "Jost", sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  line-height: 1.4;
+  text-transform: uppercase;
+  color: #5b5048;
+  margin: 0 0 4px;
+}
+
+.bed-text {
+  font-family: "Jost", sans-serif;
+  font-size: 11px;
+  color: #6b4a2f;
+  margin: 0 0 8px;
+}
+
+.bed-link {
+  font-family: "Jost", sans-serif;
+  font-size: 9px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #555b6e;
+  border-bottom: 1px solid #555b6e;
+  padding-bottom: 1px;
+}
+
+@media (max-width: 991px) {
+  .bed-box {
+    padding: 16px;
+  }
+
+  .bed-main {
+    height: 340px;
+  }
+
+  .bed-slider {
+    width: 80%;
+  }
+}
+
+
+/* =========================================================
+   7. TESTIMONIALS  (test-)
+   ========================================================= */
+.test-section {
+  background: #f2efe9;
+  padding: 80px 20px 50px;
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+.test-inner {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.test-label {
+  font-family: "Jost", sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #a8863f;
+  margin: 0 0 20px;
+}
+
+/* all slides sit in the same place, only the active one is visible */
+.test-slides {
+  display: grid;
+}
+
+.test-slide {
+  grid-area: 1 / 1;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+
+.test-slide.active {
+  opacity: 1;
+}
+
+.test-quote {
+  font-family: "Marcellus", serif;
+  font-size: 34px;
+  line-height: 1.4;
+  color: #1c1c1c;
+  margin: 0 0 26px;
+}
+
+.test-name {
+  font-family: "Jost", sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: #5b5b5b;
+  margin: 0;
+}
+
+/* small lines under the quote */
+.test-bars {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 46px;
+}
+
+.test-bar {
+  width: 160px;
+  height: 2px;
+  padding: 0;
+  border: none;
+  background: #cfcac0;
+  cursor: pointer;
+}
+
+.test-bar.active {
+  background: #333;
+}
+
+@media (max-width: 767px) {
+  .test-section {
+    padding: 50px 20px 36px;
+  }
+
+  .test-quote {
+    font-size: 22px;
+  }
+
+  .test-bar {
+    width: 60px;
+  }
+}
+
+
+/* =========================================================
+   8. FOOTER  (foot-)
+   ========================================================= */
+.foot-section {
+  margin: 0 12px 12px;
+  border-radius: 14px;
+  overflow: hidden;
+  font-family: "Instrument Sans", sans-serif;
+
+  /* dark fallback + your room image (images/footer-bg.jpg) */
+  background-color: #3b2d24;
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)),
+    url("images/footer-bg.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.foot-top {
+  padding: 44px 28px 22px;
+}
+
+.foot-title {
+  color: #fff;
+  font-size: 38px;
+  font-weight: 500;
+  line-height: 1.1;
+  margin: 0 0 22px;
+}
+
+.foot-contact-btn {
+  display: inline-block;
+  background: #fff;
+  color: #111;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 10px 18px;
+  border-radius: 50px;
+}
+
+.foot-card {
+  background: #fff;
+  border-radius: 10px;
+  margin: 0 12px 12px;
+  padding: 24px 18px 14px;
+}
+
+.foot-logo {
+  font-size: 26px;
+  font-weight: 500;
+  color: #111;
+  margin: 0 0 14px;
+}
+
+.foot-about {
+  font-size: 11px;
+  line-height: 1.6;
+  color: #444;
+  max-width: 190px;
+  margin: 0 0 14px;
+}
+
+.foot-social {
+  display: flex;
+  gap: 8px;
+}
+
+.foot-social-icon {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 1px solid #ddd;
+  color: #bbb;
+  font-size: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.foot-social-dark {
+  background: #111;
+  border-color: #111;
+  color: #fff;
+}
+
+.foot-heading {
+  font-size: 12px;
+  font-weight: 500;
+  color: #111;
+  margin: 0 0 14px;
+}
+
+.foot-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.foot-links li {
+  margin-bottom: 9px;
+}
+
+.foot-links a {
+  font-size: 11px;
+  color: #555;
+}
+
+.foot-links a:hover {
+  color: #111;
+}
+
+.foot-line {
+  border-top: 1px solid #ddd;
+  opacity: 1;
+  margin: 20px 0 14px;
+}
+
+.foot-copy {
+  text-align: center;
+  font-size: 11px;
+  color: #333;
+  margin: 0;
+}
+
+@media (max-width: 767px) {
+  .foot-title {
+    font-size: 28px;
+  }
+}

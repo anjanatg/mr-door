@@ -1,0 +1,122 @@
+/* ---------- COLLECTIONS SLIDER ---------- */
+.collections {
+  background: #fffefb;
+  padding: 30px 0 60px;
+  margin-top: 10px;
+}
+
+/* Heading row */
+.collections-heading {
+  font-family: 'Bodoni Moda', serif;
+  font-weight: 400;
+  font-size: 48px;
+  margin: 0;
+  color: #111;
+}
+
+.view-all {
+  font-size: 13px;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: #111;
+  text-decoration: none;
+  border-bottom: 1.5px solid #111;
+  padding-bottom: 2px;
+  padding-top: 50px;
+}
+
+/* ---------- Slider (keeps sliding on its own) ---------- */
+.slider {
+  margin-top: 28px;
+  overflow: hidden;              /* hides the cards outside the box */
+  container-type: inline-size;   /* lets the cards measure the box width (cqw) */
+  --gap: 28px;                   /* space between cards */
+  --visible: 5;                  /* how many cards are visible at once */
+}
+
+/* The track is one long row of cards.
+   collection.js sets --set-width (one full set of cards) and --duration (speed). */
+.slider-track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  animation: slide var(--duration, 30s) linear infinite;
+}
+
+/* Stop sliding while the mouse is over the cards */
+.slider:hover .slider-track {
+  animation-play-state: paused;
+}
+
+/* Move the row left by exactly one set of cards, then start again.
+   The next set looks the same, so the loop has no gap and no jump. */
+@keyframes slide {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(calc(var(--set-width, 1000px) * -1), 0, 0); }
+}
+
+/* Each card is a whole-pixel square (collection.js sets --card-w) */
+.collection-card {
+  position: relative;
+  flex: 0 0 auto;
+  width: var(--card-w, calc((100cqw - (var(--visible) - 1) * var(--gap)) / var(--visible)));
+  margin-right: var(--gap);
+  aspect-ratio: 1 / 1;
+  display: block;
+  overflow: hidden;
+}
+
+.collection-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  backface-visibility: hidden;   /* keeps the image steady while it moves */
+}
+
+/* Text at the bottom of each card */
+.collection-caption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 40px 6px 19px;
+  text-align: center;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0));
+}
+
+.collection-title {
+  font-size: 22px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  line-height: 1.2;
+}
+
+.collection-sub {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  line-height: 1.4;
+}
+
+/* ---------- Smaller screens: fewer cards visible ---------- */
+@media (max-width: 991px) {
+  .slider { --visible: 3; }
+}
+
+@media (max-width: 575px) {
+  .slider { --visible: 2; --gap: 14px; }
+  .collections-heading { font-size: 30px; }
+  .collection-title { font-size: 12px; letter-spacing: 1px; }
+}
+
+/* People who turned off animations on their device get a normal scrolling row */
+@media (prefers-reduced-motion: reduce) {
+  .slider { overflow-x: auto; }
+  .slider-track { animation: none; }
+}

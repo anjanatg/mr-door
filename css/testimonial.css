@@ -1,0 +1,122 @@
+/* ---------- TESTIMONIAL SECTION ---------- */
+.testimonial {
+  background: #f2efe9;
+  padding: 80px 0 60px;
+  text-align: center;
+  
+}
+
+.testimonial-eyebrow {
+  margin: 0 0 22px;
+  font-family: 'Jost', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #a88a4a;                /* gold */
+}
+
+/* All quotes sit in the same spot, so the box is as tall as the longest quote
+   and the page does not jump when the quote changes. */
+.testimonial-slides {
+  display: grid;
+  max-width: 940px;
+  margin: 0 auto;
+}
+
+.testimonial-slide {
+  grid-area: 1 / 1;
+  margin: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.8s ease, visibility 0.8s;
+}
+
+.testimonial-slide.is-active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.testimonial-quote {
+  margin: 0 0 24px;
+  font-family: 'Marcellus', serif;
+  font-size: clamp(22px, 2.5vw, 34px);
+  line-height: 1.45;
+  color: #1a1a1a;
+}
+
+.testimonial-name {
+  font-family: 'Jost', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #555;
+}
+
+/* Small bars under the quote, each with a label under it */
+.testimonial-bars {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 44px;
+}
+
+.testimonial-bar {
+  width: 160px;
+  padding: 0;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  text-align: center;
+}
+
+/* The thin line (with extra space above and below so it is easy to tap) */
+.testimonial-bar-line {
+  display: block;
+  height: 2px;
+  margin: 10px 0;
+  background: #cfcac0;
+  transition: background-color 0.3s ease;
+}
+
+/* The label under the line */
+.testimonial-bar-label {
+  display: block;
+  font-family: 'Jost', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #9a948a;
+  transition: color 0.3s ease;
+}
+
+.testimonial-bar.is-active .testimonial-bar-line {
+  background-color: #1a1a1a;
+}
+
+.testimonial-bar.is-active .testimonial-bar-label {
+  color: #1a1a1a;
+}
+
+.testimonial-bar:hover .testimonial-bar-label {
+  color: #1a1a1a;
+}
+
+.testimonial-bar:focus-visible {
+  outline: 2px solid #1a1a1a;
+  outline-offset: 4px;
+}
+
+@media (max-width: 575px) {
+  .testimonial { padding: 50px 0 40px; }
+  .testimonial-bars { gap: 10px; }
+  .testimonial-bar { width: 30%; }
+  .testimonial-bar-label { font-size: 9px; letter-spacing: 1px; }
+}
+
+/* No fade for people who turned off animations */
+@media (prefers-reduced-motion: reduce) {
+  .testimonial-slide { transition: none; }
+}
